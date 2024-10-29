@@ -1,9 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import Banner from '../components/sections/banner.astro';
+import App from '../components/sections/app.astro';
+import Footer from '../components/sections/footer.astro';
+import Galeria from '../components/sections/galeria.astro';
+import Home from '../components/sections/home.astro';
+import Navbar from '../components/sections/navbar.astro';
+import Nosotros from '../components/sections/nosotros.astro';
+import Testimonios from '../components/sections/testimonios.astro';
+import Construction from '../components/Construction.astro'; // Importación añadida
+
 ---
 
 <Layout title="Welcome to Astro.">
+	<Navbar />
 	<main>
 		<svg
 			class="astro-a"
@@ -60,6 +71,14 @@ import Card from '../components/Card.astro';
 				body="Come say hi to our amazing Discord community. ❤️"
 			/>
 		</ul>
+		<Home />
+		<Banner />
+		<Nosotros />
+		<App />
+		<Construction /> <!-- Incluyendo el componente Construction -->
+		<Testimonios />
+		<Galeria />
+		<Footer />
 	</main>
 </Layout>
 
@@ -121,3 +140,4 @@ import Card from '../components/Card.astro';
 		padding: 0;
 	}
 </style>
+
