@@ -1,6 +1,85 @@
 ---
-// home.astro
-import Construction from '../Construction.astro';
+// Banner.astro
 ---
 
-<Construction />
+<section class="relative h-[600px] w-full overflow-hidden">
+    {/* Background Image Container */}
+    <div class="absolute inset-0">
+      <div class="w-full h-full bg-neutral/20">
+        {/* Placeholder para la imagen de fondo */}
+        <div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/60"></div>
+      </div>
+    </div>
+  
+    {/* Content Container */}
+    <div class="relative h-full flex flex-col items-center justify-center text-center px-4 md:px-8">
+      {/* Logo */}
+      <div class="mb-8">
+        <span class="text-4xl md:text-5xl font-nexa-bold">
+          <span class="text-accent">9</span>
+          <span class="text-accent">inker</span>
+        </span>
+      </div>
+  
+      {/* Main Heading */}
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-nexa-bold text-white mb-6 max-w-4xl">
+        "Conectando generaciones de tinta"
+      </h1>
+  
+      {/* Subheadings */}
+      <div class="space-y-2 text-lg md:text-xl font-nexa-light text-neutral">
+        <p>Conecta con la historia del tatuaje.</p>
+        <p>Encuentra tu artista ideal con Inker</p>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    /* Variables de color */
+    :root {
+      --color-background: #0a0612;
+      --color-accent: #8B5CF6;
+      --color-neutral: #94A3B8;
+    }
+  
+    /* Importar fuente Nexa */
+    @font-face {
+      font-family: 'Nexa-Light';
+      src: url('/fonts/Nexa-Light.woff2') format('woff2'),
+           url('/fonts/Nexa-Light.woff') format('woff');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+  
+    @font-face {
+      font-family: 'Nexa';
+      src: url('/fonts/Nexa-Regular.woff2') format('woff2'),
+           url('/fonts/Nexa-Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+  
+    @font-face {
+      font-family: 'Nexa-Bold';
+      src: url('/fonts/Nexa-Bold.woff2') format('woff2'),
+           url('/fonts/Nexa-Bold.woff') format('woff');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+  
+    /* Estilos del banner */
+    section {
+      background-color: var(--color-background);
+      font-family: 'Nexa', sans-serif;
+    }
+  
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      section {
+        height: 500px;
+      }
+    }
+  </style>

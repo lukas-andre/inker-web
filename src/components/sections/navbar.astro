@@ -8,69 +8,210 @@ const navItems = {
 const currentPath = Astro.url.pathname;
 ---
 
-<nav class="flex h-16 w-full items-center justify-between bg-[#1a1a1a] px-8">
-  <div class="flex gap-8">
+<!-- Importar fuente Nexa -->
+<link
+  rel="stylesheet"
+  href="https://use.typekit.net/[YOUR-KIT-CODE].css"
+/>
+
+<nav class="flex h-20 w-full items-center justify-between bg-background px-4 md:px-8 relative">
+  {/* Línea decorativa superior */}
+  <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-30"></div>
+
+  {/* Botón de menú móvil */}
+  <button
+    id="mobile-menu-button"
+    class="md:hidden text-neutral hover:text-white transition-colors duration-300"
+    aria-label="Menú"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+
+  {/* Navegación izquierda - Desktop */}
+  <div class="hidden md:flex gap-4 mr-4">
     {navItems.left.map((item) => (
       <a
         href={`/${item.toLowerCase()}`}
         class:list={[
-          'relative text-gray-200 hover:text-white',
+          'relative font-nexa text-sm tracking-wider text-neutral hover:text-white transition-colors duration-300',
           'nav-link',
           { active: currentPath === `/${item.toLowerCase()}` }
         ]}
       >
         {item}
-        <span class="absolute -bottom-1 left-0 h-0.5 w-full bg-purple-500 opacity-0 transition-opacity duration-200" />
+        <span class="absolute -bottom-1 left-0 h-0.5 w-full bg-accent opacity-0 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100" />
       </a>
     ))}
   </div>
 
-  <div class="flex items-center justify-center">
-    <!-- Espacio para el logo -->
-    <span class="text-2xl font-bold text-purple-500">
-      <!-- Reemplaza esto con tu logo -->
-      inker
-    </span>
+  {/* Logo central */}
+  <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+    <a href="/" class="block">
+      <img 
+        src="/img/logo.png" 
+        alt="9inker" 
+        class="h-8 md:h-10 w-auto"
+      />
+    </a>
   </div>
 
-  <div class="flex gap-8">
+  {/* Navegación derecha - Desktop */}
+  <div class="hidden md:flex gap-4 ml-4">
     {navItems.right.map((item) => (
       <a
         href={`/${item.toLowerCase()}`}
         class:list={[
-          'relative text-gray-200 hover:text-white',
+          'relative font-nexa text-sm tracking-wider text-neutral hover:text-white transition-colors duration-300',
           'nav-link',
           { active: currentPath === `/${item.toLowerCase()}` }
         ]}
       >
         {item}
-        <span class="absolute -bottom-1 left-0 h-0.5 w-full bg-purple-500 opacity-0 transition-opacity duration-200" />
+        <span class="absolute -bottom-1 left-0 h-0.5 w-full bg-accent opacity-0 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100" />
       </a>
     ))}
+  </div>
+
+  {/* Menú móvil */}
+  <div id="mobile-menu" class="fixed inset-0 bg-background bg-opacity-95 z-50 hidden">
+    <div class="flex flex-col items-center justify-center h-full space-y-8">
+      <button
+        id="close-menu-button"
+        class="absolute top-5 right-5 text-neutral hover:text-white transition-colors duration-300"
+        aria-label="Cerrar menú"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      {/* Enlaces del menú móvil */}
+      {[...navItems.left, ...navItems.right].map((item) => (
+        <a
+          href={`/${item.toLowerCase()}`}
+          class:list={[
+            'font-nexa text-lg tracking-wider text-neutral hover:text-white transition-colors duration-300',
+            'mobile-nav-link',
+            { active: currentPath === `/${item.toLowerCase()}` }
+          ]}
+        >
+          {item}
+        </a>
+      ))}
+    </div>
   </div>
 </nav>
 
 <style>
-  .nav-link.active span {
+  /* Variables de color */
+  :root {
+    --color-background: #0a0612;
+    --color-accent: #8B5CF6;
+    --color-neutral: #94A3B8;
+  }
+
+  /* Importar fuente Nexa */
+  @font-face {
+    font-family: 'Nexa';
+    src: url('/fonts/Nexa-Light.woff2') format('woff2'),
+         url('/fonts/Nexa-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Nexa';
+    src: url('/fonts/Nexa-Regular.woff2') format('woff2'),
+         url('/fonts/Nexa-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Nexa';
+    src: url('/fonts/Nexa-Bold.woff2') format('woff2'),
+         url('/fonts/Nexa-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Estilos del navbar */
+  nav {
+    background-color: var(--color-background);
+    font-family: 'Nexa', sans-serif;
+  }
+
+  .nav-link.active span,
+  .mobile-nav-link.active {
     opacity: 1;
+    transform: scaleX(1);
+    color: white;
+  }
+
+  /* Efecto hover para los enlaces */
+  .nav-link:hover span {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  /* Animación del menú móvil */
+  #mobile-menu {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  #mobile-menu.show {
+    opacity: 1;
+    pointer-events: auto;
   }
 </style>
 
 <script>
-  // Manejo del estado activo
-  const navLinks = document.querySelectorAll('.nav-link');
+  // Manejo del menú móvil
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const closeMenuButton = document.getElementById('close-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+  // Función para alternar el menú móvil
+  const toggleMobileMenu = () => {
+    mobileMenu?.classList.toggle('show');
+    document.body.style.overflow = mobileMenu?.classList.contains('show') ? 'hidden' : '';
+  };
+
+  // Event listeners para los botones del menú
+  mobileMenuButton?.addEventListener('click', toggleMobileMenu);
+  closeMenuButton?.addEventListener('click', toggleMobileMenu);
+
+  // Cerrar menú al hacer clic en un enlace
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      toggleMobileMenu();
+      // Actualizar estado activo
+      mobileNavLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
+
+  // Manejo del estado activo para enlaces desktop
+  const desktopNavLinks = document.querySelectorAll('.nav-link');
   const currentPath = window.location.pathname;
 
-  navLinks.forEach(link => {
+  desktopNavLinks.forEach(link => {
     if (link instanceof HTMLAnchorElement) {
       const href = link.getAttribute('href');
       if (href === currentPath) {
         link.classList.add('active');
       }
 
-      // Actualizar el estado activo al hacer clic
       link.addEventListener('click', () => {
-        navLinks.forEach(l => l.classList.remove('active'));
+        desktopNavLinks.forEach(l => l.classList.remove('active'));
         link.classList.add('active');
       });
     }
