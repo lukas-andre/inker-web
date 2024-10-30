@@ -1,24 +1,36 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Banner from '../components/sections/banner.astro';
-import App from '../components/sections/app.astro';
-import Footer from '../components/sections/footer.astro';
-import Galeria from '../components/sections/galeria.astro';
-import Home from '../components/sections/home.astro';
-import Nosotros from '../components/sections/nosotros.astro';
-import Testimonios from '../components/sections/testimonios.astro';
-import Navbar from '../components/sections/navbar.astro';
+import Layout from "../layouts/Layout.astro";
+import Banner from "../components/sections/banner.astro";
+import App from "../components/sections/app.astro";
+import Footer from "../components/sections/footer.astro";
+import Galeria from "../components/sections/galeria.astro";
+import Home from "../components/sections/home.astro";
+import Nosotros from "../components/sections/nosotros.astro";
+import Testimonios from "../components/sections/testimonios.astro";
+import Navbar from "../components/sections/navbar.astro";
 ---
 
 ---
 
 <Layout title="Welcome to Astro.">
-	<Navbar />
-	<Home />
-	<Banner />
-	<Nosotros />
-	<App />
-	<Testimonios />
-	<Galeria />
-	<Footer />
+  <Navbar />
+  <section id="home">
+    <Home />
+  </section>
+  <section id="banner">
+    <Banner />
+  </section>
+  <section id="nosotros">
+    <Nosotros />
+  </section>
+  <section id="app">
+    <App />
+  </section>
+  <section id="testimonios">
+    <Testimonios />
+  </section>
+  <section id="galeria">
+    <Galeria />
+  </section>
+  <Footer />
 </Layout>
