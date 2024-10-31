@@ -6,6 +6,8 @@ export default {
     extend: {
       fontFamily: {
         nexa: ["Nexa", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
+        blassed: ["Blassed Day", "sans-serif"],
       },
       colors: {
         background: "var(--color-background)",

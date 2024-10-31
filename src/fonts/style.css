@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Blassed Day';
+    src: url('/src/public/fonts/blassed_day.woff2') format('woff2'),
+         url('/src/public/fonts/blassed_day.woff') format('woff');
+  }
+  
+  @font-face {
+    font-family: 'Inter';
+    src: url('/src/public/fonts/inter.woff2') format('woff2'),
+         url('/src/public/fonts/inter.woff') format('woff');
+  }
+  
+  @font-face {
+    font-family: 'Nexa';
+    src: url('/src/public/fonts/nexa.woff2') format('woff2'),
+         url('/src/public/fonts/nexa.woff') format('woff');
+  }
