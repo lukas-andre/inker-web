@@ -21,7 +21,7 @@ const currentPath = Astro.url.pathname;
     <div class="hidden md:flex gap-2">
       {navItems.left.map((item) => (
         <a
-          href={`/${item.toLowerCase()}`}
+          href={`/#${item.toLowerCase()}`}
           class:list={[
             "relative font-nexa text-sm tracking-wider text-[#94a3b8] hover:text-[#8b5cf6] transition-colors duration-300 group px-2 pb-2",
             { "text-white": currentPath === `/${item.toLowerCase()}` },
