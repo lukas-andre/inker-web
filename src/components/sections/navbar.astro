@@ -8,83 +8,52 @@ const navItems = {
 const currentPath = Astro.url.pathname;
 ---
 
-<div class="w-full bg-background">
-  <nav class="flex h-20 w-full max-w-[60%] mx-auto items-center justify-between px-4 md:px-8 relative">
-    <div class="w-full flex items-center justify-between">
-      {/* Botón de menú móvil */}
-      <button
-        id="mobile-menu-button"
-        class="md:hidden text-neutral hover:text-white transition-colors duration-300"
-        aria-label="Menú"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"
-          ></path>
-        </svg>
-      </button>
-
-      {/* Navegación izquierda - Desktop */}
-      <div class="hidden md:flex gap-4">
-        {navItems.left.map((item) => (
-          <a
-            href={`/${item.toLowerCase()}`}
-            class:list={[
-              "relative font-nexa text-sm tracking-wider text-neutral hover:text-white transition-colors duration-300 group pb-2",
-              { active: currentPath === `/${item.toLowerCase()}` },
-            ]}
-          >
-            {item}
-            <span class="absolute -bottom-1 left-0 h-0.5 w-full bg-neutral transition-all duration-300 group-hover:opacity-0" />
-          </a>
-        ))}
-      </div>
-
-      {/* Logo central */}
-      <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        <a href="/" class="block">
-          <img src="/img/logo.png" alt="9inker" class="h-8 md:h-10 w-auto" />
-        </a>
-      </div>
-
-      {/* Navegación derecha - Desktop */}
-      <div class="hidden md:flex gap-4">
-        {navItems.right.map((item) => (
-          <a
-            href={`/${item.toLowerCase()}`}
-            class:list={[
-              "relative font-nexa text-sm tracking-wider text-neutral hover:text-white transition-colors duration-300 group pb-2",
-              { active: currentPath === `/${item.toLowerCase()}` },
-            ]}
-          >
-            {item}
-            <span class="absolute -bottom-1 left-0 h-0.5 w-full bg-neutral transition-all duration-300 group-hover:opacity-0" />
-          </a>
-        ))}
-      </div>
+<div class="w-full bg-[#0a0612]">
+  <nav class="flex h-16 md:h-20 w-full max-w-2xl mx-auto items-center justify-between px-4 md:px-0 relative">
+    {/* Logo - Alineado a la izquierda en móvil, centrado en desktop */}
+    <div class="md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
+      <a href="/" class="block">
+        <img src="/img/logo.png" alt="9inker" class="h-8 md:h-10 w-auto" />
+      </a>
     </div>
-  </nav>
-</div>
 
-{/* Menú móvil */}
-<div
-  id="mobile-menu"
-  class="fixed inset-0 bg-background bg-opacity-95 z-50 hidden"
->
-  <div class="flex flex-col items-center justify-center h-full space-y-8">
+    {/* Navegación izquierda - Solo Desktop */}
+    <div class="hidden md:flex gap-2">
+      {navItems.left.map((item) => (
+        <a
+          href={`/${item.toLowerCase()}`}
+          class:list={[
+            "relative font-nexa text-sm tracking-wider text-[#94a3b8] hover:text-[#8b5cf6] transition-colors duration-300 group px-2 pb-2",
+            { "text-white": currentPath === `/${item.toLowerCase()}` },
+          ]}
+        >
+          {item}
+          <span class="absolute bottom-0 left-0 h-0.5 w-full bg-[#94a3b8] transition-all duration-300 group-hover:bg-[#8b5cf6]" />
+        </a>
+      ))}
+    </div>
+
+    {/* Navegación derecha - Solo Desktop */}
+    <div class="hidden md:flex gap-2">
+      {navItems.right.map((item) => (
+        <a
+          href={`/${item.toLowerCase()}`}
+          class:list={[
+            "relative font-nexa text-sm tracking-wider text-[#94a3b8] hover:text-[#8b5cf6] transition-colors duration-300 group px-2 pb-2",
+            { "text-white": currentPath === `/${item.toLowerCase()}` },
+          ]}
+        >
+          {item}
+          <span class="absolute bottom-0 left-0 h-0.5 w-full bg-[#94a3b8] transition-all duration-300 group-hover:bg-[#8b5cf6]" />
+        </a>
+      ))}
+    </div>
+
+    {/* Botón de menú móvil */}
     <button
-      id="close-menu-button"
-      class="absolute top-5 right-5 text-neutral hover:text-white transition-colors duration-300"
-      aria-label="Cerrar menú"
+      id="mobile-menu-button"
+      class="md:hidden text-white hover:text-[#8b5cf6] transition-colors duration-300"
+      aria-label="Menú"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -97,37 +66,14 @@ const currentPath = Astro.url.pathname;
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
-          d="M6 18L18 6M6 6l12 12"
+          d="M4 6h16M4 12h16M4 18h16"
         ></path>
       </svg>
     </button>
-
-    {/* Enlaces del menú móvil */}
-    {[...navItems.left, ...navItems.right].map((item) => (
-      <a
-        href={`/${item.toLowerCase()}`}
-        class:list={[
-          "relative font-nexa text-lg tracking-wider text-neutral hover:text-white transition-colors duration-300 group pb-2",
-          "mobile-nav-link",
-          { active: currentPath === `/${item.toLowerCase()}` },
-        ]}
-      >
-        {item}
-        <span class="absolute -bottom-1 left-0 h-0.5 w-full bg-neutral transition-all duration-300 group-hover:opacity-0" />
-      </a>
-    ))}
-  </div>
+  </nav>
 </div>
 
 <style>
-  /* Variables de color */
-  :root {
-    --color-background: #0a0612;
-    --color-accent: #8b5cf6;
-    --color-neutral: #94a3b8;
-  }
-
-  /* Importar fuente Nexa */
   @font-face {
     font-family: "Nexa";
     src: url("/fonts/Nexa-Light.woff2") format("woff2"),
@@ -136,100 +82,4 @@ const currentPath = Astro.url.pathname;
     font-style: normal;
     font-display: swap;
   }
-
-  @font-face {
-    font-family: "Nexa";
-    src: url("/fonts/Nexa-Regular.woff2") format("woff2"),
-         url("/fonts/Nexa-Regular.woff") format("woff");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: "Nexa";
-    src: url("/fonts/Nexa-Bold.woff2") format("woff2"),
-         url("/fonts/Nexa-Bold.woff") format("woff");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  /* Estilos del navbar */
-  .bg-background {
-    background-color: var(--color-background);
-  }
-
-  nav {
-    font-family: "Nexa", sans-serif;
-  }
-
-  .text-neutral {
-    color: var(--color-neutral);
-  }
-
-  .nav-link.active,
-  .mobile-nav-link.active {
-    color: white;
-  }
-
-  /* Animación del menú móvil */
-  #mobile-menu {
-    transition: opacity 0.3s ease-in-out;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  #mobile-menu.show {
-    opacity: 1;
-    pointer-events: auto;
-  }
 </style>
-
-<script>
-  // Manejo del menú móvil
-  const mobileMenuButton = document.getElementById("mobile-menu-button");
-  const closeMenuButton = document.getElementById("close-menu-button");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
-
-  // Función para alternar el menú móvil
-  const toggleMobileMenu = () => {
-    mobileMenu?.classList.toggle("show");
-    document.body.style.overflow = mobileMenu?.classList.contains("show")
-      ? "hidden"
-      : "";
-  };
-
-  // Event listeners para los botones del menú
-  mobileMenuButton?.addEventListener("click", toggleMobileMenu);
-  closeMenuButton?.addEventListener("click", toggleMobileMenu);
-
-  // Cerrar menú al hacer clic en un enlace
-  mobileNavLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      toggleMobileMenu();
-      // Actualizar estado activo
-      mobileNavLinks.forEach((l) => l.classList.remove("active"));
-      link.classList.add("active");
-    });
-  });
-
-  // Manejo del estado activo para enlaces desktop
-  const desktopNavLinks = document.querySelectorAll(".nav-link");
-  const currentPath = window.location.pathname;
-
-  desktopNavLinks.forEach((link) => {
-    if (link instanceof HTMLAnchorElement) {
-      const href = link.getAttribute("href");
-      if (href === currentPath) {
-        link.classList.add("active");
-      }
-
-      link.addEventListener("click", () => {
-        desktopNavLinks.forEach((l) => l.classList.remove("active"));
-        link.classList.add("active");
-      });
-    }
-  });
-</script>

@@ -53,7 +53,8 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M5 13l4 4L19 7"></path>
+                  d="M5 13l4 4L19 7"
+                ></path>
               </svg>
             </div>
             <span class="font-nexa text-white">Perfiles verificados</span>
@@ -72,7 +73,8 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M5 13l4 4L19 7"></path>
+                  d="M5 13l4 4L19 7"
+                ></path>
               </svg>
             </div>
             <span class="font-nexa text-white">Reseñas y calificaciones</span>
@@ -80,22 +82,8 @@
         </div>
 
         <div class="grid grid-cols-2 gap-4 mt-8">
-          <div class="inset-0 rounded-2xl overflow-hidden translate-y-[8%]">
-            <img
-              src="/img/2.png"
-              alt="Artista tatuando"
-              class="w-full h-full object-cover border-fade"
-            />
-          </div>
-          <div
-            class="inset-0 rounded-2xl overflow-hidden transform -translate-x-5"
-          >
-            <img
-              src="/img/1.png"
-              alt="Tatuaje artístico"
-              class="w-full h-full object-cover border-fade"
-            />
-          </div>
+          <div class="image-blurred-edge1 h-48 md:h-64 rounded-lg bg-cover bg-center" />
+          <div class="image-blurred-edge2 h-48 md:h-64 rounded-lg bg-cover bg-center" />
         </div>
       </div>
 
@@ -133,12 +121,21 @@
     --color-neutral: #94a3b8;
   }
 
-  /* Importar fuente Nexa */
+  .image-blurred-edge1 {
+    background-image: url("/img/2.png");
+    box-shadow: 0 0 8px 8px var(--color-background) inset;
+  }
+
+  .image-blurred-edge2 {
+    background-image: url("/img/1.png");
+    box-shadow: 0 0 8px 8px var(--color-background) inset;
+  }
+
+  /* Importar fuentes Nexa */
   @font-face {
-    font-family: "Nexa-Light";
-    src:
-      url("/fonts/Nexa-Light.woff2") format("woff2"),
-      url("/fonts/Nexa-Light.woff") format("woff");
+    font-family: "Nexa";
+    src: url("/fonts/Nexa-Light.woff2") format("woff2"),
+         url("/fonts/Nexa-Light.woff") format("woff");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -146,68 +143,10 @@
 
   @font-face {
     font-family: "Nexa";
-    src:
-      url("/fonts/Nexa-Regular.woff2") format("woff2"),
-      url("/fonts/Nexa-Regular.woff") format("woff");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: "Nexa-Bold";
-    src:
-      url("/fonts/Nexa-Bold.woff2") format("woff2"),
-      url("/fonts/Nexa-Bold.woff") format("woff");
+    src: url("/fonts/Nexa-Bold.woff2") format("woff2"),
+         url("/fonts/Nexa-Bold.woff") format("woff");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
-  }
-
-  /* Estilos generales */
-  section {
-    background-color: var(--color-background);
-    font-family: "Nexa", sans-serif;
-  }
-
-  /* Animaciones */
-  @keyframes float {
-    0% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .border-fade {
-    position: relative;
-  }
-
-  .border-fade::before,
-  .border-fade::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 80px; /* Increased height for more visible effect */
-    z-index: 1;
-  }
-
-  .border-fade::before {
-    top: 0;
-    background: linear-gradient(to bottom, rgba(10, 6, 18, 1), rgba(10, 6, 18, 0));
-  }
-
-  .border-fade::after {
-    bottom: 0;
-    background: linear-gradient(to top, rgba(10, 6, 18, 1), rgba(10, 6, 18, 0));
   }
 </style>
