@@ -7,7 +7,8 @@
 >
   {/* Fondo decorativo */}
   <div class="absolute inset-0 overflow-hidden">
-    <div class="absolute inset-0 bg-[url('/img/grid-pattern.png')] opacity-5"></div>
+    <div class="absolute inset-0 bg-[url('/img/grid-pattern.png')] opacity-5">
+    </div>
     <div class="absolute inset-0 flex items-center justify-center opacity-5">
       <span class="text-[20vw] font-nexa-bold text-white/10">INKER</span>
     </div>
@@ -18,7 +19,9 @@
       {/* Contenido izquierdo */}
       <div class="space-y-8">
         <div class="space-y-4">
-          <h1 class="text-4xl md:text-6xl font-nexa-bold leading-tight text-white">
+          <h1
+            class="text-4xl md:text-6xl font-nexa-bold leading-tight text-white"
+          >
             Encuentra a tu{" "}
             <span class="text-[#8B5CF6]">tatuador perfecto</span>
           </h1>
@@ -37,7 +40,9 @@
 
         <div class="space-y-4 mt-8">
           <div class="flex items-center space-x-3">
-            <div class="flex items-center justify-center w-5 h-5 rounded-full bg-[#8B5CF6]/20">
+            <div
+              class="flex items-center justify-center w-5 h-5 rounded-full bg-[#8B5CF6]/20"
+            >
               <svg
                 class="w-4 h-4 text-[#8B5CF6]"
                 fill="none"
@@ -48,14 +53,15 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M5 13l4 4L19 7"
-                ></path>
+                  d="M5 13l4 4L19 7"></path>
               </svg>
             </div>
             <span class="font-nexa text-white">Perfiles verificados</span>
           </div>
           <div class="flex items-center space-x-3">
-            <div class="flex items-center justify-center w-5 h-5 rounded-full bg-[#8B5CF6]/20">
+            <div
+              class="flex items-center justify-center w-5 h-5 rounded-full bg-[#8B5CF6]/20"
+            >
               <svg
                 class="w-4 h-4 text-[#8B5CF6]"
                 fill="none"
@@ -66,8 +72,7 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M5 13l4 4L19 7"
-                ></path>
+                  d="M5 13l4 4L19 7"></path>
               </svg>
             </div>
             <span class="font-nexa text-white">Reseñas y calificaciones</span>
@@ -75,18 +80,20 @@
         </div>
 
         <div class="grid grid-cols-2 gap-4 mt-8">
-          <div class="aspect-square rounded-2xl overflow-hidden">
+          <div class="inset-0 rounded-2xl overflow-hidden translate-y-[8%]">
             <img
-              src="/img/tattoo-1.jpg"
+              src="/img/2.png"
               alt="Artista tatuando"
-              class="w-full h-full object-cover"
+              class="w-full h-full object-cover border-fade"
             />
           </div>
-          <div class="aspect-square rounded-2xl overflow-hidden">
+          <div
+            class="inset-0 rounded-2xl overflow-hidden transform -translate-x-5"
+          >
             <img
-              src="/img/tattoo-2.jpg"
+              src="/img/1.png"
               alt="Tatuaje artístico"
-              class="w-full h-full object-cover"
+              class="w-full h-full object-cover border-fade"
             />
           </div>
         </div>
@@ -94,16 +101,20 @@
 
       {/* Contenido derecho - Mockups */}
       <div class="relative h-[600px] md:h-[700px]">
-        <div class="absolute top-0 right-0 w-[280px] md:w-[320px] transform rotate-6">
+        <div
+          class="absolute top-0 right-0 w-[280px] md:w-[320px] transform rotate-6"
+        >
           <img
-            src="/img/mockup-1.png"
+            src="/img/3.png"
             alt="App móvil Inker"
             class="w-full h-auto drop-shadow-2xl"
           />
         </div>
-        <div class="absolute top-20 right-20 w-[280px] md:w-[320px] transform -rotate-3">
+        <div
+          class="absolute top-20 right-20 w-[280px] md:w-[320px] transform -rotate-3"
+        >
           <img
-            src="/img/mockup-2.png"
+            src="/img/4.png"
             alt="App móvil Inker interfaz"
             class="w-full h-auto drop-shadow-2xl"
           />
@@ -125,8 +136,9 @@
   /* Importar fuente Nexa */
   @font-face {
     font-family: "Nexa-Light";
-    src: url("/fonts/Nexa-Light.woff2") format("woff2"),
-         url("/fonts/Nexa-Light.woff") format("woff");
+    src:
+      url("/fonts/Nexa-Light.woff2") format("woff2"),
+      url("/fonts/Nexa-Light.woff") format("woff");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -134,8 +146,9 @@
 
   @font-face {
     font-family: "Nexa";
-    src: url("/fonts/Nexa-Regular.woff2") format("woff2"),
-         url("/fonts/Nexa-Regular.woff") format("woff");
+    src:
+      url("/fonts/Nexa-Regular.woff2") format("woff2"),
+      url("/fonts/Nexa-Regular.woff") format("woff");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -143,8 +156,9 @@
 
   @font-face {
     font-family: "Nexa-Bold";
-    src: url("/fonts/Nexa-Bold.woff2") format("woff2"),
-         url("/fonts/Nexa-Bold.woff") format("woff");
+    src:
+      url("/fonts/Nexa-Bold.woff2") format("woff2"),
+      url("/fonts/Nexa-Bold.woff") format("woff");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -171,5 +185,29 @@
 
   .animate-float {
     animation: float 6s ease-in-out infinite;
+  }
+
+  .border-fade {
+    position: relative;
+  }
+
+  .border-fade::before,
+  .border-fade::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 80px; /* Increased height for more visible effect */
+    z-index: 1;
+  }
+
+  .border-fade::before {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(10, 6, 18, 1), rgba(10, 6, 18, 0));
+  }
+
+  .border-fade::after {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(10, 6, 18, 1), rgba(10, 6, 18, 0));
   }
 </style>
