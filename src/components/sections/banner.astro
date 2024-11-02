@@ -1,87 +1,31 @@
 ---
-// Banner.astro
+// src/pages/banner.astro
 ---
 
-<section class="relative h-[600px] w-full overflow-hidden">
-  {/* Background Image Container */}
+<div class="relative w-full h-[400px] overflow-hidden">
+  <!-- Background image with overlay -->
   <div class="absolute inset-0">
-    <img src="/img/banner.png" alt="Fondo" class="w-full h-full object-cover" />
-    <div class="w-full h-full bg-neutral/20">
-      {/* Placeholder para la imagen de fondo */}
-      <div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/60"></div>
-    </div>
+      <img 
+          src="/img/banner.png" 
+          alt="Tattoo artist working" 
+          class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-black/60"></div>
   </div>
 
-  {/* Content Container */}
-  <div class="relative h-full flex flex-col items-center justify-center text-center px-4 md:px-8">
-    {/* Logo */}
-    <div class="mb-8">
-      <img src="/img/logo.png" alt="Logo" class="w-auto h-16 md:h-24" />
-      <span class="text-4xl md:text-5xl font-nexa-bold">
-        <span class="text-accent"></span>
-        <span class="text-accent"></span>
-      </span>
-    </div>
-
-    {/* Main Heading */}
-    <h1 class="text-3xl md:text-5xl lg:text-4xl font-nexa-bold text-white mb-6 max-w-4xl">
-      "Conectando generaciones de tinta"
-    </h1>
-
-    {/* Subheadings */}
-    <div class="text-3xl md:text-5xl lg:text-2xl font-nexa-bold text-white mb-6 max-w-4xl">
-      <p>Conecta con la historia del tatuaje.</p>
-      <p>Encuentra tu artista ideal con Inker</p>
-    </div>
+  <!-- Content -->
+  <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
+      <h2 class="text-[#4318FF] text-3xl md:text-4xl font-bold mb-4">
+          Inker
+      </h2>
+      
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 max-w-3xl">
+          "Conectando generaciones de tinta"
+      </h1>
+      
+      <div class="text-gray-200 text-lg md:text-xl max-w-2xl space-y-2">
+          <p>Conecta con la historia del tatuaje.</p>
+          <p>Encuentra tu artista ideal con Inker</p>
+      </div>
   </div>
-</section>
-  
-  <style>
-    /* Variables de color */
-    :root {
-      --color-background: #0a0612;
-      --color-accent: #8B5CF6;
-      --color-neutral: #94A3B8;
-    }
-  
-    /* Importar fuente Nexa */
-    @font-face {
-      font-family: 'Nexa-Light';
-      src: url('/fonts/Nexa-Light.woff2') format('woff2'),
-           url('/fonts/Nexa-Light.woff') format('woff');
-      font-weight: 300;
-      font-style: normal;
-      font-display: swap;
-    }
-  
-    @font-face {
-      font-family: 'Nexa';
-      src: url('/fonts/Nexa-Regular.woff2') format('woff2'),
-           url('/fonts/Nexa-Regular.woff') format('woff');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-  
-    @font-face {
-      font-family: 'Nexa-Bold';
-      src: url('/fonts/Nexa-Bold.woff2') format('woff2'),
-           url('/fonts/Nexa-Bold.woff') format('woff');
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
-  
-    /* Estilos del banner */
-    section {
-      background-color: var(--color-background);
-      font-family: 'Nexa', sans-serif;
-    }
-  
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      section {
-        height: 500px;
-      }
-    }
-  </style>
+</div>
