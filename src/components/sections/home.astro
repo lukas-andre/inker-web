@@ -1,152 +1,122 @@
 ---
-// Home.astro
+// src/pages/index.astro
+import { Image } from 'astro:assets';
 ---
 
-<section
-  class="min-h-screen bg-[#0A0612] px-4 md:px-8 py-12 md:py-24 relative overflow-hidden"
->
-  {/* Fondo decorativo */}
-  <div class="absolute inset-0 overflow-hidden">
-    <div class="absolute inset-0 bg-[url('/img/grid-pattern.png')] opacity-5">
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Encuentra tu tatuador perfecto</title>
+</head>
+<body class="min-h-screen bg-[#0A0A0B] text-white relative overflow-hidden">
+    <!-- Background text -->
+    <div class="absolute inset-0 opacity-5 pointer-events-none">
+        <img
+            src="/img/home/TATTOS.png"
+            alt=""
+            width="800"
+            height="200"
+            class="absolute top-0 left-0"
+        />
+        <img
+            src="/img/home/INKER S.png"
+            alt=""
+            width="800"
+            height="200"
+            class="absolute bottom-0 right-0"
+        />
     </div>
-    <div class="absolute inset-0 flex items-center justify-center opacity-5">
-      <span class="text-[20vw] font-nexa-bold text-white/10">INKER</span>
-    </div>
-  </div>
 
-  <div class="max-w-7xl mx-auto relative">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      {/* Contenido izquierdo */}
-      <div class="space-y-8">
-        <div class="space-y-4">
-          <h1
-            class="text-4xl md:text-6xl font-nexa-bold leading-tight text-white"
-          >
-            Encuentra a tu{" "}
-            <span class="text-[#8B5CF6]">tatuador perfecto</span>
-          </h1>
-          <p class="text-[#94A3B8] text-lg md:text-xl font-nexa-light">
-            Conecta con tatuadores de todo el mundo y descubre estilos únicos
-            que se adaptan a tu personalidad.
-          </p>
+    <!-- Main content -->
+    <div class="container mx-auto px-4 py-12 relative z-10">
+        <div class="absolute top-4 right-4 bg-[#4318FF] text-white px-4 py-2 rounded-full text-sm">
+            Tu tatuador, tu estilo, tu estilo.
         </div>
 
-        <a
-          href="#download"
-          class="inline-block bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-nexa-bold px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105"
-        >
-          Descargar la app
-        </a>
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <!-- Left column -->
+            <div class="space-y-6">
+                <h1 class="text-5xl font-bold leading-tight">
+                    Encuentra a tu <span class="text-[#4318FF]">tatuador perfecto</span>
+                </h1>
+                <p class="text-gray-400 text-lg">
+                    Conecta con tatuadores de todo el mundo y descubre estilos únicos que se adapten a tu personalidad.
+                </p>
+                <button class="bg-[#4318FF] text-white px-8 py-3 rounded-lg hover:bg-[#3614CC] transition-colors">
+                    Descargar la app
+                </button>
 
-        <div class="space-y-4 mt-8">
-          <div class="flex items-center space-x-3">
-            <div
-              class="flex items-center justify-center w-5 h-5 rounded-full bg-[#8B5CF6]/20"
-            >
-              <svg
-                class="w-4 h-4 text-[#8B5CF6]"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 13l4 4L19 7"
-                ></path>
-              </svg>
+                <div class="space-y-3 mt-8">
+                    <div class="flex items-center gap-2">
+                        <svg 
+                            class="w-5 h-5 text-[#4318FF]" 
+                            viewBox="0 0 24 24" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            stroke-width="2"
+                        >
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Perfiles verificados</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg 
+                            class="w-5 h-5 text-[#4318FF]" 
+                            viewBox="0 0 24 24" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            stroke-width="2"
+                        >
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Reseñas y calificaciones</span>
+                    </div>
+                </div>
             </div>
-            <span class="font-nexa text-white">Perfiles verificados</span>
-          </div>
-          <div class="flex items-center space-x-3">
-            <div
-              class="flex items-center justify-center w-5 h-5 rounded-full bg-[#8B5CF6]/20"
-            >
-              <svg
-                class="w-4 h-4 text-[#8B5CF6]"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 13l4 4L19 7"
-                ></path>
-              </svg>
+
+            <!-- Right column - Phone mockups -->
+            <div class="relative">
+                <div class="relative z-20 transform translate-x-12">
+                    <img
+                        src="/img/home/Rectangle.png"
+                        alt="App screenshot"
+                        width="300"
+                        height="600"
+                        class="rounded-3xl shadow-2xl"
+                    />
+                </div>
+                <div class="absolute top-20 -left-4 z-10">
+                    <img
+                        src="/img/home/Rectangle (1).png"
+                        alt="App screenshot"
+                        width="300"
+                        height="600"
+                        class="rounded-3xl shadow-2xl"
+                    />
+                </div>
             </div>
-            <span class="font-nexa text-white">Reseñas y calificaciones</span>
-          </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 mt-8">
-          <div class="image-blurred-edge1 h-48 md:h-64 rounded-lg bg-cover bg-center" />
-          <div class="image-blurred-edge2 h-48 md:h-64 rounded-lg bg-cover bg-center" />
+        <!-- Bottom images -->
+        <div class="grid lg:grid-cols-2 gap-8 mt-16">
+            <img
+                src="/img/home/Frame 16.png"
+                alt="Tattoo artwork"
+                width="500"
+                height="300"
+                class="rounded-2xl"
+            />
+            <img
+                src="/img/home/vecteezy_man-tattoos-body-face-generate-ai_28669602-removebg-preview.png"
+                alt="Tattoo artwork"
+                width="500"
+                height="300"
+                class="rounded-2xl"
+            />
         </div>
-      </div>
-
-      {/* Contenido derecho - Mockups */}
-      <div class="relative h-[600px] md:h-[700px]">
-        <div
-          class="absolute top-0 right-0 w-[280px] md:w-[320px] transform rotate-6"
-        >
-          <img
-            src="/img/3.png"
-            alt="App móvil Inker"
-            class="w-full h-auto drop-shadow-2xl"
-          />
-        </div>
-        <div
-          class="absolute top-20 right-20 w-[280px] md:w-[320px] transform -rotate-3"
-        >
-          <img
-            src="/img/4.png"
-            alt="App móvil Inker interfaz"
-            class="w-full h-auto drop-shadow-2xl"
-          />
-        </div>
-      </div>
     </div>
-  </div>
-</section>
-
-<style>
-  /* Variables de color */
-  :root {
-    --color-background: #0a0612;
-    --color-accent: #8b5cf6;
-    --color-accent-hover: #7c3aed;
-    --color-neutral: #94a3b8;
-  }
-
-  .image-blurred-edge1 {
-    background-image: url("/img/2.png");
-    box-shadow: 0 0 8px 8px var(--color-background) inset;
-  }
-
-  .image-blurred-edge2 {
-    background-image: url("/img/1.png");
-    box-shadow: 0 0 8px 8px var(--color-background) inset;
-  }
-
-  /* Importar fuentes Nexa */
-  @font-face {
-    font-family: "Nexa";
-    src: url("/fonts/Nexa-Light.woff2") format("woff2"),
-         url("/fonts/Nexa-Light.woff") format("woff");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: "Nexa";
-    src: url("/fonts/Nexa-Bold.woff2") format("woff2"),
-         url("/fonts/Nexa-Bold.woff") format("woff");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
-</style>
+</body>
+</html>

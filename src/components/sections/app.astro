@@ -1,223 +1,69 @@
 ---
-// Astro component frontmatter
+// src/pages/app.astro
 ---
 
-<style>
-    /* CSS Variables */
-    :root {
-      --background-dark: #0A051C;
-      --card-background: #1A103C;
-      --accent-purple: #6E3AFF;
-      --text-white: #FFFFFF;
-      --text-gray: #B4B4B4;
-    }
-  
-    /* Font face declaration */
-    @font-face {
-      font-family: 'Nexa';
-      src: url('/fonts/Nexa-Bold.woff2') format('woff2');
-      font-weight: bold;
-      font-style: normal;
-      font-display: swap;
-    }
-  
-    .app-section {
-      background-color: var(--background-dark);
-      padding: 6rem 2rem;
-      overflow: hidden;
-    }
-  
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-  
-    .header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-  
-    .title {
-      font-family: 'Nexa', sans-serif;
-      font-size: 3rem;
-      color: var(--text-white);
-      line-height: 1.2;
-      margin-bottom: 1rem;
-    }
-  
-    .title-accent {
-      color: var(--accent-purple);
-      display: inline-block;
-    }
-  
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-bottom: 4rem;
-    }
-  
-    .feature-card {
-      background-color: var(--card-background);
-      border-radius: 1rem;
-      padding: 2rem;
-      transition: transform 0.3s ease;
-    }
-  
-    .feature-card:hover {
-      transform: translateY(-5px);
-    }
-  
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      margin-bottom: 1.5rem;
-      color: var(--accent-purple);
-    }
-  
-    .feature-title {
-      font-family: 'Nexa', sans-serif;
-      color: var(--text-white);
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-  
-    .feature-description {
-      color: var(--text-gray);
-      line-height: 1.6;
-    }
-  
-    .partners {
-      margin-top: 6rem;
-      text-align: center;
-    }
-  
-    .partners-title {
-      font-family: 'Nexa', sans-serif;
-      color: var(--text-white);
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-      opacity: 0.8;
-    }
-  
-    .partners-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 2rem;
-      align-items: center;
-      justify-items: center;
-    }
-  
-    .partner-logo {
-      height: 40px;
-      opacity: 0.7;
-      transition: opacity 0.3s ease;
-    }
-  
-    .partner-logo:hover {
-      opacity: 1;
-    }
-  
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .app-section {
-        padding: 4rem 1rem;
-      }
-  
-      .title {
-        font-size: 2.5rem;
-      }
-  
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-  
-      .partners-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-      }
-    }
-  
-    @media (max-width: 480px) {
-      .title {
-        font-size: 2rem;
-      }
-  
-      .partners-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-  </style>
-  
-  <section class="app-section">
-    <div class="container">
-      <header class="header">
-        <h2 class="title">
-          Amplia variedad
-          <span class="title-accent"></span>
-          <br />
-        </h2>
-      </header>
-      <div class="flex items-center justify-center mt-8"> <!-- Contenedor flex -->
-        <img
-          src="/img/8.png"  
-          alt="Imagen izquierda"
-          class="w-1/4 h-auto object-cover rounded-2xl" 
-        />
-        <span class="mx-4 text-4xl font-bold text-white">Y</span> <!-- Texto "Y" en blanco y más grande -->
-        <img
-          src="/img/9.png"  
-          alt="Imagen derecha"
-          class="w-1/4 h-auto object-cover rounded-2xl" 
-        />
-      </div>
-      <p class="text-center mt-4 text-4xl text-white">Alta calidad.</p> <!-- Texto "Alta calidad." en blanco y del mismo tamaño -->
-    </div>
-  </section>
-  
-  <div class="features-grid relative">
-    <img src="/img/7.png" alt="Fondo" class="absolute right-0 top-[-20%] w-1/4 h-auto z-0" /> <!-- Imagen de fondo, ajustada hacia arriba -->
-  
-    <div class="feature-card z-10">
-      <div class="feature-icon">
-        <img src="/img/11.png" alt="Servicio personalizado" class="w-full h-auto opacity-70" /> <!-- Imagen para Servicio personalizado con transparencia -->
-      </div>
-      <h3 class="feature-title">Servicio personalizado</h3>
-      <p class="feature-description">
-        Desde diseños especializados hasta curacion de heridas, ofrecemos una experiencia completa para que tu tatuaje sea una obra maestra.
-      </p>
-    </div>
-  
-    <div class="feature-card z-10">
-      <div class="feature-icon">
-        <img src="/img/10.png" alt="Fácil de usar" class="w-full h-auto opacity-70" /> <!-- Imagen para Fácil de usar con transparencia -->
-      </div>
-      <h3 class="feature-title">Tatuajes paraa todos</h3>
-      <p class="feature-description">
-        Descubre una amplia variedad de estilos, desde tradicionales hasta modernos, y encuentra el que mejor se adapte a ti.
-      </p>
-    </div>
-  
-    <div class="feature-card z-10">
-      <div class="feature-icon">
-        <img src="/img/5.png" alt="Artistas verificados" class="w-full h-auto opacity-70" /> <!-- Imagen para Artistas verificados con transparencia -->
-      </div>
-      <h3 class="feature-title">Mas alla del tatuaje</h3>
-      <p class="feature-description">
-        Ademas de nuestro servicio de tatuaje, ofrecemos productos de cuidado de la piel y asesoramiento para mantener tu tatuaje en perfectas condiciones.
-      </p>
-    </div>
+<div class="min-h-screen bg-[#0A0A0B] relative overflow-hidden">
+  <!-- Background image -->
+  <div class="absolute inset-0 z-0">
+      <img 
+          src="/img/app/7.png" 
+          alt="" 
+          class="w-full h-full object-cover opacity-50"
+      />
+      <div class="absolute inset-0 bg-[#0A0A0B]/80"></div>
   </div>
-  
-      <div class="partners">
-        <h3 class="partners-title">Alianzas estratégicas para el éxito. Descubre las empresas lideres que impulsan nuestro crecimiento.</h3>
-        <h4 class="text-white mt-8">Trabajamos mano a mano con las mejores empresas para ofrecer soluciones innovadoras y de alta calidad. Nuestra red de colaboradores nos permite ampliar nuestros servicios y llegar a más clientes.</h4>
 
-        <div class="partners-grid mt-8"> <!-- Añadido margen superior para separar del texto -->
-          <!-- Partner logos placeholders -->
-          <img src="/images/partner1.svg" alt="Partner 1" class="partner-logo" />
-          <img src="/images/partner2.svg" alt="Partner 2" class="partner-logo" />
-          <img src="/images/partner3.svg" alt="Partner 3" class="partner-logo" />
-          <img src="/images/partner4.svg" alt="Partner 4" class="partner-logo" />
-          <img src="/images/partner5.svg" alt="Partner 5" class="partner-logo" />
-        </div>
+  <!-- Content -->
+  <div class="relative z-10 container mx-auto px-4 py-16">
+      <h1 class="text-white text-4xl md:text-5xl font-bold mb-12 max-w-2xl">
+          Tu tatuaje, nuestra<br/> obra de arte
+      </h1>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <div class="bg-[#4318FF] rounded-3xl p-6 space-y-4">
+              <img 
+                  src="/img/app/Frame 1000005039.png" 
+                  alt="Serpiente" 
+                  class="w-12 h-12"
+              />
+              <h2 class="text-white text-2xl font-semibold">
+                  Servicios personalizados
+              </h2>
+              <p class="text-white/80 text-sm leading-relaxed">
+                  Desde diseños personalizados hasta curación de heridas, ofrecemos una experiencia completa para que tu tatuaje sea una obra maestra.
+              </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-[#4318FF] rounded-3xl p-6 space-y-4">
+              <img 
+                  src="/img/app/Frame 1000005039.png" 
+                  alt="Lobo" 
+                  class="w-12 h-12"
+              />
+              <h2 class="text-white text-2xl font-semibold">
+                  Tatuajes para todos
+              </h2>
+              <p class="text-white/80 text-sm leading-relaxed">
+                  Descubre una amplia variedad de estilos, desde tradicionales hasta modernos, y encuentra el que mejor se adapta a ti.
+              </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-[#4318FF] rounded-3xl p-6 space-y-4">
+              <img 
+                  src="/img/app/Frame 1000005039.png" 
+                  alt="Unicornio" 
+                  class="w-12 h-12"
+              />
+              <h2 class="text-white text-2xl font-semibold">
+                  Más allá del tatuaje
+              </h2>
+              <p class="text-white/80 text-sm leading-relaxed">
+                  Además de nuestros servicios de tatuaje, ofrecemos productos de cuidado de la piel y asesoramiento para mantener tu tatuaje en perfectas condiciones.
+              </p>
+          </div>
+      </div>
+  </div>
+</div>
