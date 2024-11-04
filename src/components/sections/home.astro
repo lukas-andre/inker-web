@@ -13,43 +13,43 @@ import { Image } from 'astro:assets';
 </head>
 <body class="bg-[#0A0A0B] text-white relative">
     <!-- Background text -->
-    <div class="absolute inset-0 opacity-5 pointer-events-none">
+    <div class="absolute inset-0">
         <img
             src="/img/home/TATTOS.png"
             alt=""
             width="800"
             height="200"
-            class="absolute top-0 left-0"
+            class="absolute top-0 left-0 w-full h-auto opacity-80"
         />
         <img
-            src="/img/home/INKER S.png"
+            src="/img/home/INKER-S.png" 
             alt=""
             width="800"
             height="200"
-            class="absolute bottom-0 right-0"
+            class="absolute bottom-0 right-0 w-full h-auto opacity-80"
         />
     </div>
 
     <!-- Main content -->
-    <div class="container mx-auto px-4 py-12 relative z-10">
+    <div class="container mx-auto px-4 py-8 relative z-10">
         <div class="absolute top-4 right-4 bg-[#4318FF] text-white px-4 py-2 rounded-full text-sm">
             Tu tatuador, tu estilo, tu estilo.
         </div>
 
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="grid lg:grid-cols-2 gap-8 items-center">
             <!-- Left column -->
-            <div class="space-y-6">
-                <h1 class="text-5xl font-bold leading-tight">
+            <div class="space-y-5">
+                <h1 class="text-3xl md:text-4xl font-bold leading-tight">
                     Encuentra a tu <span class="text-[#4318FF]">tatuador perfecto</span>
                 </h1>
                 <p class="text-gray-400 text-lg">
                     Conecta con tatuadores de todo el mundo y descubre estilos únicos que se adapten a tu personalidad.
                 </p>
-                <button class="bg-[#4318FF] text-white px-8 py-3 rounded-lg hover:bg-[#3614CC] transition-colors">
+                <button class="bg-[#4318FF] text-white px-6 py-2 rounded-lg hover:bg-[#3614CC] transition-colors">
                     Descargar la app
                 </button>
 
-                <div class="space-y-3 mt-8">
+                <div class="space-y-2 mt-4">
                     <div class="flex items-center gap-2">
                         <svg 
                             class="w-5 h-5 text-[#4318FF]" 
@@ -79,44 +79,44 @@ import { Image } from 'astro:assets';
 
             <!-- Right column - Phone mockups -->
             <div class="relative">
-                <div class="relative z-20 transform translate-x-12">
+                <div class="relative z-20 transform translate-x-8">
                     <img
                         src="/img/home/Rectangle.png"
                         alt="App screenshot"
-                        width="300"
-                        height="600"
+                        width="250"
+                        height="500"
                         class="rounded-3xl shadow-2xl"
                     />
                 </div>
-                <div class="absolute top-20 -left-4 z-10">
+                <div class="absolute top-16 -left-4 z-10">
                     <img
                         src="/img/home/Rectangle (1).png"
                         alt="App screenshot"
-                        width="300"
-                        height="600"
+                        width="250"
+                        height="500"
                         class="rounded-3xl shadow-2xl"
                     />
                 </div>
             </div>
         </div>
 
-        <!-- Bottom images -->
-        <div class="grid lg:grid-cols-2 gap-8 mt-16">
-            <img
-                src="/img/home/Frame 16.png"
-                alt="Tattoo artwork"
-                width="500"
-                height="300"
-                class="rounded-2xl"
-            />
-            <img
-                src="/img/home/vecteezy_man-tattoos-body-face-generate-ai_28669602-removebg-preview.png"
-                alt="Tattoo artwork"
-                width="500"
-                height="300"
-                class="rounded-2xl"
-            />
-        </div>
+<!-- Bottom images -->
+<div class="grid lg:grid-cols-2 gap-4 mt-8"> <!-- Cambié gap-6 a gap-4 y mt-12 a mt-8 -->
+    <img
+        src="/img/home/Frame 16.png"
+        alt="Tattoo artwork"
+        width="300"
+        height="225" 
+        class="rounded-2xl"
+    />
+    <img
+        src="/img/home/vecteezy_man-tattoos-body-face-generate-ai_28669602-removebg-preview.png"
+        alt="Tattoo artwork"
+        width="300" 
+        height="225" 
+        class="rounded-2xl"
+    />
+</div>
     </div>
 </body>
 </html>
