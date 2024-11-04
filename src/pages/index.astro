@@ -8,6 +8,8 @@ import Home from "../components/sections/home.astro";
 import Nosotros from "../components/sections/nosotros.astro";
 import Testimonios from "../components/sections/testimonios.astro";
 import Navbar from "../components/sections/navbar.astro";
+import Partner from "../components/sections/partner.astro";
+import Informacion from "../components/sections/informacion.astro";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -21,8 +23,14 @@ import Navbar from "../components/sections/navbar.astro";
   <section id="nosotros">
     <Nosotros />
   </section>
+  <section id="informacion">
+    <Informacion />
+  </section>
   <section id="app">
     <App />
+  </section>
+  <section id="partner">
+    <Partner />
   </section>
   <section id="testimonios">
     <Testimonios />
@@ -31,10 +39,4 @@ import Navbar from "../components/sections/navbar.astro";
     <Galeria />
   </section>
   <Footer />
-  <section id="informacion">
-    <informacion />
-  </section>
-  <section id="partner">
-    <partner />
-  </section>
 </Layout>

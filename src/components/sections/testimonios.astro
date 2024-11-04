@@ -1,6 +1,68 @@
 ---
-// home.astro
-import Construction from '../Construction.astro';
+// Astro component
 ---
 
-<Construction />
+<section class="min-h-screen bg-[#0a051c] flex items-center justify-center px-4 py-16">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-white font-script text-5xl mb-6">Testimonios</h2>
+      
+      <div class="flex justify-center mb-12">
+        <div class="flex gap-1">
+          <div class="w-2 h-2 bg-gray-500 transform rotate-45"></div>
+          <div class="w-2 h-2 bg-gray-500 transform rotate-45"></div>
+        </div>
+      </div>
+  
+      <div class="relative">
+        <!-- Navigation Arrows -->
+        <button 
+          class="absolute left-0 top-1/2 -translate-y-1/2 text-[#6366f1] hover:text-white transition-colors"
+          aria-label="Previous testimonial"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+  
+        <div class="px-12">
+          <blockquote class="mb-8">
+            <p class="text-white text-lg md:text-xl leading-relaxed">
+              "Inker ha revolucionado la forma en que busco tatuadores! Es super fácil encontrar artistas con el estilo que me gusta y reservar una cita. ¡La app es intuitiva y me ahorró muchísimo tiempo!"
+            </p>
+          </blockquote>
+  
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 mb-3">
+              <img 
+                src="/img/testimonios/4.png" 
+                alt="Foto de perfil de Laura"
+                class="w-full h-full rounded-full object-cover"
+              />
+            </div>
+            <div class="text-center">
+              <h3 class="text-white text-xl font-medium">Laura</h3>
+              <p class="text-gray-400">Cliente</p>
+            </div>
+          </div>
+        </div>
+  
+        <button 
+          class="absolute right-0 top-1/2 -translate-y-1/2 text-[#6366f1] hover:text-white transition-colors"
+          aria-label="Next testimonial"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    .font-script {
+      font-family: 'Dancing Script', cursive;
+    }
+  
+    /* Add this to your head or global CSS */
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+  </style>

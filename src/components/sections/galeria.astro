@@ -4,72 +4,14 @@
 
 <section class="gallery-section">
   <div class="container">
-    <h2 class="gallery-title">Galeria</h2>
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <img
-          src="/placeholder-1.jpg"
-          alt="Tattoo artwork"
-          class="gallery-image"
-        />
-        <div class="gallery-overlay"></div>
-      </div>
-      <div class="gallery-item">
-        <img
-          src="/placeholder-2.jpg"
-          alt="Tattoo artist at work"
-          class="gallery-image"
-        />
-        <div class="gallery-overlay"></div>
-      </div>
-      <div class="gallery-item">
-        <img
-          src="/placeholder-3.jpg"
-          alt="Tattoo design"
-          class="gallery-image"
-        />
-        <div class="gallery-overlay"></div>
-      </div>
-      <div class="gallery-item">
-        <img
-          src="/placeholder-4.jpg"
-          alt="Tattoo studio"
-          class="gallery-image"
-        />
-        <div class="gallery-overlay"></div>
-      </div>
-      <div class="gallery-item">
-        <img
-          src="/placeholder-5.jpg"
-          alt="Tattoo process"
-          class="gallery-image"
-        />
-        <div class="gallery-overlay"></div>
-      </div>
-      <div class="gallery-item">
-        <img
-          src="/placeholder-6.jpg"
-          alt="Tattoo artist portrait"
-          class="gallery-image"
-        />
-        <div class="gallery-overlay"></div>
-      </div>
-      <div class="gallery-item">
-        <img
-          src="/placeholder-7.jpg"
-          alt="Tattoo artwork"
-          class="gallery-image"
-        />
-        <div class="gallery-overlay"></div>
-      </div>
-      <div class="gallery-item">
-        <img
-          src="/placeholder-8.jpg"
-          alt="Tattoo design"
-          class="gallery-image"
-        />
-        <div class="gallery-overlay"></div>
-      </div>
+    <h2 class="gallery-title">Galería</h2>
+    <div class="gallery-item">
+      <img
+        src="/img/galeria/1.png"
+        alt="Galería de tatuajes"
+        class="gallery-image"
+      />
+      <div class="gallery-overlay"></div>
     </div>
   </div>
 </section>
@@ -87,7 +29,7 @@
 
   .gallery-section {
     background-color: var(--color-background);
-    padding: 4rem 0;
+    padding: 4rem 0 1rem; /* Ajusta el padding para acercar al footer */
     width: 100%;
   }
 
@@ -117,22 +59,16 @@
     background-color: var(--color-accent);
   }
 
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    width: 100%;
-  }
-
   .gallery-item {
     position: relative;
-    aspect-ratio: 1;
     border-radius: 4px;
+    max-width: 100%; /* Asegura que no exceda el ancho del contenedor */
+    margin: 0 auto; /* Centra la imagen */
   }
 
   .gallery-image {
     width: 100%;
-    height: 100%;
+    height: auto; /* Mantiene la proporción de la imagen */
     object-fit: cover;
     transition: transform 0.3s ease;
   }
@@ -157,17 +93,7 @@
   }
 
   /* Responsive Design */
-  @media (max-width: 1024px) {
-    .gallery-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
   @media (max-width: 768px) {
-    .gallery-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
     .gallery-title {
       font-size: 2.5rem;
     }
@@ -175,12 +101,7 @@
 
   @media (max-width: 480px) {
     .gallery-section {
-      padding: 2rem 0;
-    }
-
-    .gallery-grid {
-      grid-template-columns: 1fr;
-      gap: 0.5rem;
+      padding: 2rem 0 1rem; /* Ajusta el padding para móviles */
     }
 
     .gallery-title {
