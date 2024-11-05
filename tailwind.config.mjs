@@ -10,6 +10,7 @@ export default {
         blassed: ["Blassed Day", "sans-serif"],
       },
       colors: {
+        purple1: "#0A031F",
         background: "var(--color-background)",
         accent: "var(--color-accent)",
         neutral: "var(--color-neutral)",

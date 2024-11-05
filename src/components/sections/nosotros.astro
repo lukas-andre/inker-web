@@ -1,85 +1,72 @@
----
-// src/pages/nosotros.astro
----
+<!-- Main content -->
+<div class="w-full relative bg-[#0A031F] pt-10">
+  <div class="container mx-auto px-4 py-12 z-10">
+    <div class="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+      <!-- Left column -->
+      <div class="space-y-8">
+        <h1 class="text-6xl font-bold italic">
+          Sobre <span class="text-[#4318FF]">nosotros</span>
+        </h1>
 
-<html lang="es">
-<head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Sobre Nosotros - Inker</title>
-</head>
-<body class="min-h-screen bg-[#0A0A0B] text-white relative overflow-hidden">
-    <!-- Main content -->
-    <div class="container mx-auto px-4 py-12 relative z-10">
-        <div class="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
-            <!-- Left column -->
-            <div class="space-y-8">
-                <h1 class="text-6xl font-bold italic">
-                    Sobre <span class="text-[#4318FF]">nosotros</span>
-                </h1>
-                
-                <div class="space-y-6 text-gray-300">
-                    <p>
-                        Nuestra app te simplifica la búsqueda de tu próximo tatuaje. Con 
-                        unos pocos clics, podrás encontrar artistas talentosos en tu zona o 
-                        en cualquier parte del mundo. Personaliza tu búsqueda por estilo, 
-                        temática y presupuesto. ¡Tu tatuaje ideal está a solo un toque de 
-                        distancia!
-                    </p>
-                    
-                    <p>
-                        Únete a una comunidad global de amantes del tatuaje. Inspírate con 
-                        miles de diseños y descubre nuevos artistas. Nuestra app es más que 
-                        una simple herramienta de búsqueda: es tu fuente de inspiración 
-                        para tu próximo tatuaje.
-                    </p>
-                </div>
+        <div class="space-y-6 text-gray-300">
+          <p>
+            Nuestra app te simplifica la búsqueda de tu próximo tatuaje. Con
+            unos pocos clics, podrás encontrar artistas talentosos en tu zona o
+            en cualquier parte del mundo. Personaliza tu búsqueda por estilo,
+            temática y presupuesto. ¡Tu tatuaje ideal está a solo un toque de
+            distancia!
+          </p>
 
-                <a 
-                    href="#" 
-                    class="inline-block bg-[#4318FF] text-white px-8 py-3 rounded-lg hover:bg-[#3614CC] transition-colors"
-                >
-                    ¡Encuentra tu artista!
-                </a>
-            </div>
-
-            <!-- Right column -->
-            <div class="relative">
-                <!-- Phone mockup -->
-                <div class="relative z-20">
-                    <img
-                        src="/img/nosotros/image 14.png"
-                        alt="App interface"
-                        class="w-[300px] mx-auto rounded-3xl shadow-2xl"
-                    />
-                </div>
-                
-                <!-- Decorative image -->
-                <div class="absolute top-[-100px] right-[-50px] z-10">
-                    <img
-                        src="/img/nosotros/Frame 41.png"
-                        alt="Tattoo artist"
-                        class="w-[400px] opacity-90"
-                    />
-                </div>
-            </div>
+          <p>
+            Únete a una comunidad global de amantes del tatuaje. Inspírate con
+            miles de diseños y descubre nuevos artistas. Nuestra app es más que
+            una simple herramienta de búsqueda: es tu fuente de inspiración para
+            tu próximo tatuaje.
+          </p>
         </div>
+
+        <a
+          href="#"
+          class="inline-block bg-[#4318FF] text-white px-8 py-3 rounded-lg hover:bg-[#3614CC] transition-colors"
+        >
+          ¡Encuentra tu artista!
+        </a>
+      </div>
+
+      <!-- Right column -->
+      <div class="relative">
+        <!-- Phone mockup -->
+        <div class="relative z-20">
+          <img
+            src="/img/nosotros/image 14.png"
+            alt="App interface"
+            class="w-[300px] mx-auto rounded-3xl shadow-2xl"
+          />
+        </div>
+
+        <!-- Decorative image -->
+        <div class="absolute top-[-100px] right-[100px] z-10">
+          <img
+            src="/img/nosotros/Frame 41.png"
+            alt="Tattoo artist"
+            class="w-[200px] opacity-90"
+          />
+        </div>
+      </div>
     </div>
 
     <!-- Decorative patterns -->
     <div class="absolute inset-0 pointer-events-none z-0">
-        <img
-            src="/img/nosotros/Mask group.png"
-            alt=""
-            class="absolute top-0 right-0 w-[400px] opacity-30" 
-        />
-        <img
-            src="/img/nosotros/Frame 36.png"
-            alt=""
-            class="absolute bottom-0 left-0 w-[300px] opacity-30" 
-        />
+      <img
+        src="/img/nosotros/Mask group.png"
+        alt=""
+        class="absolute bottom-0 right-0 w-[400px] opacity-30"
+      />
+      <img
+        src="/img/nosotros/Frame 36.png"
+        alt=""
+        class="absolute top-10 left-0 w-[300px] opacity-30"
+      />
     </div>
-</body>
-</html>
+  </div>
+</div>
