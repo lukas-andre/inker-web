@@ -14,26 +14,24 @@ import "../../fonts/style.css";
     <div class="absolute inset-0 bg-black/60"></div>
   </div>
 
-  <!-- Efecto de desvanecimiento gris superior e inferior -->
-  <div
-    class="absolute inset-0 pointer-events-none"
-    style={{
-      background: `
-          linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(0, 0, 0, 0.8) 5%,
-            rgba(0, 0, 0, 0.5) 10%,
-            transparent 25%,
-            transparent 75%,
-            rgba(0, 0, 0, 0.5) 90%,
-            rgba(0, 0, 0, 0.8) 95%,
-            rgba(0, 0, 0, 1) 100%
-          )
-        `,
-    }}
-  >
-  </div>
+<!-- Efecto de desvanecimiento grisáceo superior e inferior -->
+<div
+  class="absolute inset-0 pointer-events-none"
+  style={{
+    background: `
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.3) 0%,    /* Gris claro en la parte superior */
+        rgba(255, 255, 255, 0.3) 10%,   /* Gris más claro con menos opacidad */
+        transparent 20%,                 /* Transparente */
+        transparent 80%,                 /* Transparente */
+        rgba(255, 255, 255, 0.3) 90%,    /* Gris más claro en la parte inferior */
+        rgba(255, 255, 255, 0.3) 100%    /* Gris claro en la parte inferior */
+      )
+    `,
+  }}
+>
+</div>
 
   <!-- Efecto de viñeta para acentuar los bordes -->
   <div
@@ -48,13 +46,12 @@ import "../../fonts/style.css";
   <div
     class="relative z-10 h-full flex flex-col items-center justify-center text-center px-4"
   >
-    <img src="/img/logo.png" alt="Inker" class="w-24 md:w-32 mb-4" />
+  <img src="/img/logo.png" alt="" style="width: 200px; height: auto;" class="mb-4" />
 
-    <h1 class="text-[4.5rem] text-white mb-6 font-inter font-black">
-      "Conectando generaciones de tinta"
-    </h1>
+  <h1 class="text-[3rem] text-white mb-6 font-inter font-black">
+    "Conectando generaciones de tinta"</h1>
 
-    <div class="text-gray-200 text-[3rem] space-y-2 font-inter mt-10">
+    <div class="text-gray-200 text-[2rem] space-y-2 font-inter mt-10">
       <p>Conecta con la historia del tatuaje.</p>
       <p>Encuentra tu artista ideal con Inker</p>
     </div>
