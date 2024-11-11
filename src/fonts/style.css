@@ -1,17 +1,26 @@
 @font-face {
-    font-family: 'Blassed Day';
-    src: url('/src/public/fonts/blassed_day.woff2') format('woff2'),
-         url('/src/public/fonts/blassed_day.woff') format('woff');
-  }
-  
-  @font-face {
-    font-family: 'Inter';
-    src: url('/src/public/fonts/inter.woff2') format('woff2'),
-         url('/src/public/fonts/inter.woff') format('woff');
-  }
-  
-  @font-face {
-    font-family: 'Nexa';
-    src: url('/src/public/fonts/nexa.woff2') format('woff2'),
-         url('/src/public/fonts/nexa.woff') format('woff');
-  }
+  font-family: "Blassed Day";
+  src: url("/fonts/Blessed_Day.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("/fonts/Nexa-Heavy.ttf") format("truetype");
+}
+
+.font-blassed-day {
+  font-family: "Blassed Day", sans-serif;
+}
+
+.font-inter {
+  font-family: "Inter", sans-serif;
+}
+
+.font-nexa {
+  font-family: "Nexa", sans-serif;
+}
