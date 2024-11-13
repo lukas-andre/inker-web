@@ -4,43 +4,137 @@
 
 <section class="gallery-section bg-purple1">
   <div class="container">
-    <h2 class="gallery-title">Galería </h2>
+    <h2 class="gallery-title">Galería</h2>
     <div class="gallery-grid">
-      <div class="gallery-item">
-        <img src="/img/galeria/1.png" alt="Imagen 1" class="gallery-image" />
+      <div class="gallery-item cursor-pointer">
+        <img
+          src="/img/galeria/1.png"
+          alt="Imagen 1"
+          class="gallery-image cursor-pointer"
+        />
         <div class="gallery-overlay"></div>
       </div>
-      <div class="gallery-item">
-        <img src="/img/galeria/2.png" alt="Imagen 2" class="gallery-image" />
+      <div class="gallery-item cursor-pointer">
+        <img
+          src="/img/galeria/2.png"
+          alt="Imagen 2"
+          class="gallery-image cursor-pointer"
+        />
         <div class="gallery-overlay"></div>
       </div>
-      <div class="gallery-item">
-        <img src="/img/galeria/3.png" alt="Imagen 3" class="gallery-image" />
+      <div class="gallery-item cursor-pointer">
+        <img
+          src="/img/galeria/3.png"
+          alt="Imagen 3"
+          class="gallery-image cursor-pointer"
+        />
         <div class="gallery-overlay"></div>
       </div>
-      <div class="gallery-item">
-        <img src="/img/galeria/4.png" alt="Imagen 4" class="gallery-image" />
+      <div class="gallery-item cursor-pointer">
+        <img
+          src="/img/galeria/4.png"
+          alt="Imagen 4"
+          class="gallery-image cursor-pointer"
+        />
         <div class="gallery-overlay"></div>
       </div>
-      <div class="gallery-item">
-        <img src="/img/galeria/5.png" alt="Imagen 5" class="gallery-image" />
+      <div class="gallery-item cursor-pointer">
+        <img
+          src="/img/galeria/5.png"
+          alt="Imagen 5"
+          class="gallery-image cursor-pointer"
+        />
         <div class="gallery-overlay"></div>
       </div>
-      <div class="gallery-item">
-        <img src="/img/galeria/6.png" alt="Imagen 6" class="gallery-image" />
+      <div class="gallery-item cursor-pointer">
+        <img
+          src="/img/galeria/6.png"
+          alt="Imagen 6"
+          class="gallery-image cursor-pointer"
+        />
         <div class="gallery-overlay"></div>
       </div>
-      <div class="gallery-item">
-        <img src="/img/galeria/7.png" alt="Imagen 7" class="gallery-image" />
+      <div class="gallery-item cursor-pointer">
+        <img
+          src="/img/galeria/7.png"
+          alt="Imagen 7"
+          class="gallery-image cursor-pointer"
+        />
         <div class="gallery-overlay"></div>
       </div>
-      <div class="gallery-item">
-        <img src="/img/galeria/8.png" alt="Imagen 8" class="gallery-image" />
+      <div class="gallery-item cursor-pointer">
+        <img
+          src="/img/galeria/8.png"
+          alt="Imagen 8"
+          class="gallery-image cursor-pointer"
+        />
         <div class="gallery-overlay"></div>
       </div>
     </div>
   </div>
 </section>
+
+<div
+  id="gallery-modal"
+  class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden"
+>
+  <div class="relative">
+    <span
+      class="close absolute top-2 right-2 text-white text-3xl cursor-pointer"
+      >&times;</span
+    >
+    <img
+      class="modal-content max-w-full max-h-screen"
+      id="img01"
+      src=""
+      alt=""
+    />
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("gallery-modal");
+    const modalImg = document.getElementById("img01");
+    const closeBtn = document.querySelector(".close");
+    const galleryItems = document.querySelectorAll(".gallery-item");
+
+    if (!modal || !modalImg || !closeBtn) return;
+
+    // Show modal when clicking on a gallery item
+    galleryItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const img = item.querySelector("img");
+        if (img) {
+          // @ts-expect-error Property 'src' does not exist on type 'Element'.
+          modalImg.src = img.src;
+          // @ts-expect-error Property 'src' does not exist on type 'Element'.
+          modalImg.alt = img.alt;
+          modal.classList.remove("hidden");
+        }
+      });
+    });
+
+    // Close modal when clicking on the "X"
+    closeBtn.addEventListener("click", () => {
+      modal.classList.add("hidden");
+    });
+
+    // Close modal when clicking outside the image
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.classList.add("hidden");
+      }
+    });
+
+    // Close modal when pressing the Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        modal.classList.add("hidden");
+      }
+    });
+  });
+</script>
 
 <style>
   /* Custom Properties */
@@ -129,7 +223,10 @@
       font-size: 2.5rem;
     }
     .gallery-grid {
-      grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas pequeñas */
+      grid-template-columns: repeat(
+        2,
+        1fr
+      ); /* Dos columnas en pantallas pequeñas */
     }
   }
 
@@ -149,8 +246,9 @@
   /* Font Face Declaration */
   @font-face {
     font-family: "Nexa";
-    src: url("/fonts/Nexa-Regular.woff2") format("woff2"),
-         url("/fonts/Nexa-Regular.woff") format("woff");
+    src:
+      url("/fonts/Nexa-Regular.woff2") format("woff2"),
+      url("/fonts/Nexa-Regular.woff") format("woff");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -158,8 +256,9 @@
 
   @font-face {
     font-family: "Nexa";
-    src: url("/fonts/Nexa-Bold.woff2") format("woff2"),
-         url("/fonts/Nexa-Bold.woff") format("woff");
+    src:
+      url("/fonts/Nexa-Bold.woff2") format("woff2"),
+      url("/fonts/Nexa-Bold.woff") format("woff");
     font-weight: bold;
     font-style: normal;
     font-display: swap;
