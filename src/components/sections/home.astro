@@ -2,8 +2,8 @@
   class="bg-[#0A031F] text-white relative pb-20 bg-cover bg-center z-0"
   style="background-image: url('/img/Frame 7.png');"
 >
-<div class="absolute top-10 left-0 z-0 hidden xl:block">
-  <img
+  <div class="absolute top-10 left-0 z-0 hidden xl:block">
+    <img
       src="/img/home/TATTOS.png"
       alt=""
       width="100"
@@ -42,7 +42,9 @@
             <span class="text-[#4318FF]">tatuador perfecto</span>
           </h1>
           <p class="text-gray-400 text-lg">
-            <span class="text-bold">Conecta con tatuadores de todo el mundo</span>
+            <span class="text-bold"
+              >Conecta con tatuadores de todo el mundo</span
+            >
             y descubre estilos únicos que se adapten a tu personalidad.
           </p>
           <button
@@ -52,21 +54,16 @@
           </button>
 
           <!-- Bottom images girl and boy -->
-          <div class="flex pt-10">
-            <!-- Cambié gap-6 a gap-4 y mt-12 a mt-8 -->
+          <div class="flex pt-10 space-x-4 overflow-hidden">
             <img
               src="/img/home/Frame 16.png"
               alt="Tattoo artwork"
-              width="300"
-              height="225"
-              class="rounded-2xl"
+              class="rounded-2xl w-full max-w-[10rem] sm:max-w-sm md:max-w-md lg:max-w-lg"
             />
             <img
               src="/img/home/Frame 17.png"
               alt="Tattoo artwork"
-              width="300"
-              height="225"
-              class="rounded-2xl"
+              class="rounded-2xl w-full max-w-[10rem] sm:max-w-sm md:max-w-md lg:max-w-lg"
             />
           </div>
         </div>
@@ -90,30 +87,24 @@
             />
           </div>
 
-          <div class="m-auto mt-[35rem] z-20">
-            <div class="flex items-center gap-2">
-              <svg
-                class="w-5 h-5 text-[#4318FF]"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-2xl text-bold">Perfiles verificados</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <svg
-                class="w-5 h-5 text-[#4318FF]"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span class="text-2xl text-bold">Reseñas y calificaciones</span>
+          <div class="m-auto mt-[35rem] z-20 w-full flex justify-center">
+            <div class="flex flex-col items-start">
+              <div class="flex items-center gap-2">
+                <img
+                  src="/img/check.svg"
+                  alt="Checklist icon"
+                  class="w-5 h-5"
+                />
+                <span class="text-2xl text-bold">Perfiles verificados</span>
+              </div>
+              <div class="flex items-center gap-2 mt-2">
+                <img
+                  src="/img/check.svg"
+                  alt="Checklist icon"
+                  class="w-5 h-5"
+                />
+                <span class="text-2xl text-bold">Reseñas y calificaciones</span>
+              </div>
             </div>
           </div>
         </div>
