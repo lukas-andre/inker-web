@@ -1,48 +1,54 @@
 ---
+// Layout.astro
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+
+// Moved fonts to a separate config
+const fonts = [
+  {
+    family: "Blassed Day",
+    url: "/fonts/Blessed_Day.ttf",
+    weight: "400",
+  },
+  {
+    family: "Inter",
+    url: "/fonts/Inter-VariableFont_opsz,wght.ttf",
+    weight: "variable",
+  },
+  {
+    family: "Nexa",
+    url: "/fonts/Nexa-Heavy.ttf",
+    weight: "700",
+  },
+] as const;
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Inker es un punto de encuentro para tatuadores y clientes."
-    />
+    <meta name="description" content="Inker es un punto de encuentro para tatuadores y clientes." />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    
+    <!-- Preload critical assets -->
+    {fonts.map(font => (
+      <link
+        rel="preload"
+        href={font.url}
+        as="font"
+        type="font/ttf"
+        crossorigin="anonymous"
+      />
+    ))}
 
-    <!-- Precargar fuentes -->
-    <link
-      rel="preload"
-      href="/fonts/Blessed_Day.ttf"
-      as="font"
-      type="font/ttf"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="/fonts/Inter-VariableFont_opsz,wght.ttf"
-      as="font"
-      type="font/ttf"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="/fonts/Nexa-Heavy.ttf"
-      as="font"
-      type="font/ttf"
-      crossorigin
-    />
-
-    <style>
+    <!-- Critical CSS -->
+    <style is:inline>
       .loading {
         display: flex;
         justify-content: center;
@@ -64,16 +70,47 @@ const { title } = Astro.props;
         animation: spin 1s ease-in-out infinite;
       }
       @keyframes spin {
-        to {
-          transform: rotate(360deg);
-        }
+        to { transform: rotate(360deg); }
       }
       .content {
         opacity: 0;
         transition: opacity 0.3s ease-in-out;
       }
-      .content.loaded {
-        opacity: 1;
+      .content.loaded { opacity: 1; }
+    </style>
+
+    <!-- Font declarations -->
+    <style is:global>
+      @font-face {
+        font-family: "Blassed Day";
+        src: url("/fonts/Blessed_Day.ttf") format("truetype");
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Inter";
+        src: url("/fonts/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Nexa";
+        src: url("/fonts/Nexa-Heavy.ttf") format("truetype");
+        font-display: swap;
+      }
+      :root {
+        --accent: 136, 58, 234;
+        --accent-light: 224, 204, 250;
+        --accent-dark: 49, 10, 101;
+        --accent-gradient: linear-gradient(
+          45deg,
+          rgb(var(--accent)),
+          rgb(var(--accent-light)) 30%,
+          white 60%
+        );
+      }
+      html {
+        font-family: "Inter", system-ui, sans-serif;
+        background: #13151a;
+        scroll-behavior: smooth;
       }
     </style>
   </head>
@@ -84,83 +121,20 @@ const { title } = Astro.props;
     <div id="content" class="content">
       <slot />
     </div>
+
     <script>
-      function loadFonts() {
-        return Promise.all([
-          new FontFace("Blassed Day", "url(/fonts/Blessed_Day.ttf)").load(),
-          new FontFace(
-            "Inter",
-            "url(/fonts/Inter-VariableFont_opsz,wght.ttf)"
-          ).load(),
-          new FontFace("Nexa", "url(/fonts/Nexa-Heavy.ttf)").load(),
-        ]);
-      }
 
-      function showContent() {
-        // @ts-expect-error - Ignore TS error for demo purposes
-        document.getElementById("loading").style.display = "none";
-        // @ts-expect-error - Ignore TS error for demo purposes
-        document.getElementById("content").classList.add("loaded");
-      }
 
-      window.addEventListener("load", function () {
-        loadFonts()
-          .then(() => {
-            // Fonts are loaded, show content after a short delay
-            setTimeout(showContent, 1000);
-          })
-          .catch((error) => {
-            console.error("Error loading fonts:", error);
-            // If there's an error loading fonts, show content anyway
-            showContent();
-          });
+      const showContent = () => {
+        requestAnimationFrame(() => {
+          document.getElementById("loading")?.style.setProperty("display", "none");
+          document.getElementById("content")?.classList.add("loaded");
+        });
+      };
+
+      window.addEventListener("load", async () => {
+        showContent();
       });
     </script>
   </body>
 </html>
-<style is:global>
-  @font-face {
-    font-family: "Blassed Day";
-    src: url("/fonts/Blessed_Day.ttf") format("truetype");
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: "Inter";
-    src: url("/fonts/Inter-VariableFont_opsz,wght.ttf") format("truetype");
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: "Nexa";
-    src: url("/fonts/Nexa-Heavy.ttf") format("truetype");
-    font-display: swap;
-  }
-
-  :root {
-    --accent: 136, 58, 234;
-    --accent-light: 224, 204, 250;
-    --accent-dark: 49, 10, 101;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      white 60%
-    );
-  }
-  html {
-    font-family: "Inter", system-ui, sans-serif;
-    background: #13151a;
-  }
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
-  }
-</style>
