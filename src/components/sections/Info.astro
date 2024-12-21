@@ -1,0 +1,266 @@
+---
+// src/components/sections/informacion.astro
+---
+
+<section class="info-section">
+  <div class="container">
+    <div class="content-wrapper">
+      <!-- Elementos decorativos -->
+      <div class="decor-element top-left">
+        <img
+          src="/img/informacion/Vector.png"
+          alt=""
+          aria-hidden="true"
+        />
+      </div>
+      <div class="decor-element bottom-right">
+        <img
+          src="/img/informacion/Vector (1).png"
+          alt=""
+          aria-hidden="true"
+        />
+      </div>
+
+      <!-- Contenido principal -->
+      <div class="text-content">
+        <h1 class="main-title">Amplia variedad</h1>
+        
+        <div class="image-gallery">
+          <div class="gallery-item left">
+            <div class="image-container">
+              <img
+                src="/img/informacion/image.png"
+                alt="Artista tatuador trabajando"
+              />
+              <div class="image-overlay"></div>
+            </div>
+          </div>
+
+          <span class="connector">Y</span>
+
+          <div class="gallery-item right">
+            <div class="image-container">
+              <img
+                src="/img/informacion/man-doing-tattoo-tattoo-salon 2 (1).png"
+                alt="Artista tatuador trabajando"
+              />
+              <div class="image-overlay"></div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="secondary-title">Alta calidad.</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .info-section {
+    background-color: #141D3C;
+    padding: 8rem 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .info-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at center,
+      rgba(67, 24, 255, 0.1),
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .container {
+    max-width: 64rem;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .content-wrapper {
+    position: relative;
+    padding: 2rem;
+  }
+
+  .decor-element {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    opacity: 0.8;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .decor-element img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .top-left {
+    top: 1.25rem;
+    left: 1.25rem;
+    animation: rotate 10s linear infinite;
+  }
+
+  .bottom-right {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    animation: rotate 10s linear infinite reverse;
+  }
+
+  .text-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .main-title,
+  .secondary-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    color: white;
+    position: relative;
+    text-shadow: 0 0 20px rgba(67, 24, 255, 0.3);
+  }
+
+  .main-title::after,
+  .secondary-title::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #4318FF, transparent);
+    transition: width 0.3s ease;
+  }
+
+  .main-title:hover::after,
+  .secondary-title:hover::after {
+    width: 80%;
+  }
+
+  .image-gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+
+  .gallery-item {
+    width: 20rem;
+    height: 8rem;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .image-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 9999px;
+    overflow: hidden;
+    position: relative;
+    transform: translateZ(0);
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-item:hover .image-container {
+    transform: translateZ(20px);
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.1);
+  }
+
+  .image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(67, 24, 255, 0.2),
+      transparent,
+      rgba(67, 24, 255, 0.2)
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-item:hover .image-overlay {
+    opacity: 1;
+  }
+
+  .connector {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    color: white;
+    position: relative;
+    z-index: 2;
+  }
+
+  .connector::before {
+    content: '';
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    background: radial-gradient(circle at center, rgba(67, 24, 255, 0.3), transparent);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+    50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.2; }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .image-gallery {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      width: 100%;
+      max-width: 20rem;
+    }
+
+    .connector {
+      margin: 1rem 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .info-section {
+      padding: 4rem 1rem;
+    }
+
+    .decor-element {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+</style>

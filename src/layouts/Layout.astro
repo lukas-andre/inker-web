@@ -121,17 +121,13 @@ const fonts = [
     <div id="content" class="content">
       <slot />
     </div>
-
     <script>
-
-
       const showContent = () => {
         requestAnimationFrame(() => {
           document.getElementById("loading")?.style.setProperty("display", "none");
           document.getElementById("content")?.classList.add("loaded");
         });
       };
-
       window.addEventListener("load", async () => {
         showContent();
       });

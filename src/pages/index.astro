@@ -1,12 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Banner from "../components/sections/banner.astro";
-import App from "../components/sections/app.astro";
 import Footer from "../components/sections/footer.astro";
 import Home from "../components/sections/home.astro";
-import Nosotros from "../components/sections/nosotros.astro";
 import Navbar from "../components/sections/navbar.astro";
-import Informacion from "../components/sections/informacion.astro";
+import ContactoFloat from "../components/sections/ContactoFloat.astro";
+import We from "../components/sections/We.astro";
+import Info from "../components/sections/Info.astro";
 ---
 
 <Layout title="Inker">
@@ -18,13 +18,13 @@ import Informacion from "../components/sections/informacion.astro";
     <Banner />
   </section>
   <section id="nosotros">
-    <Nosotros />
+    <We />
   </section>
   <section id="informacion">
-    <Informacion />
+    <Info />
   </section>
-  <section id="app">
-    <App />
+  <section id="contacto">
+    <ContactoFloat />
   </section>
   <Footer />
 </Layout>

@@ -1,114 +1,419 @@
-<section
-  class="bg-[#0A031F] text-white relative pb-20 bg-cover bg-center z-0"
-  style="background-image: url('/img/Frame 7.png');"
->
-  <div class="absolute top-10 left-0 z-0 hidden xl:block">
-    <img
-      src="/img/home/TATTOS.png"
-      alt=""
-      width="100"
-      height="25"
-      class="w-full h-auto opacity-50"
-    />
+---
+// src/components/sections/home.astro
+---
+
+<section class="hero-section">
+  <!-- Efecto de fondo con degradado -->
+  <div class="background-effects">
+    <div class="gradient-sphere"></div>
+    <div class="floating-text left">TATTOS</div>
+    <div class="floating-text right">INKER S</div>
   </div>
 
-  <div class="absolute top-96 right-0 z-0 hidden xl:block">
-    <img
-      src="/img/home/INKER S.png"
-      alt=""
-      width="100"
-      height="25"
-      class="w-full h-auto opacity-50"
-    />
-  </div>
+  <div class="container">
+    <!-- Badge flotante -->
+    <div class="floating-badge">
+      Tu tatuador, tu estilo
+    </div>
 
-  <!-- Main content -->
-  <div class="relative z-10">
-    <div class="container m-auto relative z-10">
-      <div class="mx-auto px-4 py-3 relative z-10">
-        <div
-          class="absolute top-4 right-4 bg-[#4318FF] text-white px-4 py-2 rounded-full text-sm transform rotate-12"
-          style="transform: rotate(12deg);"
-        >
-          Tu tatuador, tu estilo.
-        </div>
+    <div class="content-grid">
+      <!-- Columna izquierda -->
+      <div class="left-column">
+        <h1 class="main-title">
+          Encuentra a tu <br />
+          <span class="highlight">tatuador perfecto</span>
+        </h1>
+        
+        <p class="description">
+          <strong>Conecta con tatuadores de todo el mundo</strong>
+          y descubre estilos únicos que se adapten a tu personalidad.
+        </p>
+
+        <button class="download-button">
+          Descargar la app
+          <span class="button-shine"></span>
+        </button>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-8 items-center relative z-10">
-        <!-- Left column -->
-        <div class="space-y-5">
-          <h1 class="text-4xl md:text-6xl font-bold leading-tight">
-            Encuentra a tu <br />
-            <span class="text-[#4318FF]">tatuador perfecto</span>
-          </h1>
-          <p class="text-gray-400 text-lg">
-            <span class="text-bold"
-              >Conecta con tatuadores de todo el mundo</span
-            >
-            y descubre estilos únicos que se adapten a tu personalidad.
-          </p>
-          <button
-            class="bg-[#4318FF] text-white px-6 py-2 rounded-lg hover:bg-[#3614CC] transition-colors"
-          >
-            Descargar la app
-          </button>
-
-          <!-- Bottom images girl and boy -->
-          <div class="flex pt-10 space-x-4 overflow-hidden">
-            <img
-              src="/img/home/Frame 16.png"
-              alt="Tattoo artwork"
-              class="rounded-2xl w-full max-w-[10rem] sm:max-w-sm md:max-w-md lg:max-w-lg"
-            />
-            <img
-              src="/img/home/Frame 17.png"
-              alt="Tattoo artwork"
-              class="rounded-2xl w-full max-w-[10rem] sm:max-w-sm md:max-w-md lg:max-w-lg"
-            />
-          </div>
+      <!-- Columna derecha -->
+      <div class="right-column">
+        <div class="phone-container">
+          <img
+            src="/img/home/Rectangle.png"
+            alt="App screenshot"
+            class="phone front"
+          />
+          <img
+            src="/img/home/Rectangle (1).png"
+            alt="App screenshot"
+            class="phone back"
+          />
         </div>
 
-        <!-- Right column - Phone mockups -->
-        <div class="relative z-10">
-          <div class="absolute top-10 left-1/2 z-20">
-            <img
-              src="/img/home/Rectangle.png"
-              alt="App screenshot"
-              width="250"
-              height="500"
-            />
+        <div class="features-list">
+          <div class="feature-item">
+            <img src="/img/check.svg" alt="Checklist icon" />
+            <span>Perfiles verificados</span>
           </div>
-          <div class="absolute top-10 left-[calc(50%-15rem)] z-20">
-            <img
-              src="/img/home/Rectangle (1).png"
-              alt="App screenshot"
-              width="375"
-              height="750"
-            />
-          </div>
-
-          <div class="m-auto mt-[35rem] z-20 w-full flex justify-center">
-            <div class="flex flex-col items-start">
-              <div class="flex items-center gap-2">
-                <img
-                  src="/img/check.svg"
-                  alt="Checklist icon"
-                  class="w-5 h-5"
-                />
-                <span class="text-2xl text-bold">Perfiles verificados</span>
-              </div>
-              <div class="flex items-center gap-2 mt-2">
-                <img
-                  src="/img/check.svg"
-                  alt="Checklist icon"
-                  class="w-5 h-5"
-                />
-                <span class="text-2xl text-bold">Reseñas y calificaciones</span>
-              </div>
-            </div>
+          <div class="feature-item">
+            <img src="/img/check.svg" alt="Checklist icon" />
+            <span>Reseñas y calificaciones</span>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .hero-section {
+    background-color: #0A031F;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 0;
+    min-height: 100vh;
+  }
+
+  .background-effects {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .gradient-sphere {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vw;
+    background: radial-gradient(
+      circle,
+      rgba(67, 24, 255, 0.1) 0%,
+      rgba(10, 3, 31, 0) 70%
+    );
+    animation: pulse 8s ease-in-out infinite;
+  }
+
+  .floating-text {
+    position: absolute;
+    font-size: 15rem;
+    font-weight: 900;
+    opacity: 0.05;
+    white-space: nowrap;
+    color: #4318FF;
+  }
+
+  .floating-text.left {
+    top: 2rem;
+    left: -10%;
+    animation: floatLeft 20s linear infinite;
+  }
+
+  .floating-text.right {
+    bottom: 2rem;
+    right: -10%;
+    animation: floatRight 20s linear infinite;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+  }
+
+  .floating-badge {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    background: #4318FF;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    transform: rotate(12deg);
+    animation: float 3s ease-in-out infinite;
+    box-shadow: 0 4px 15px rgba(67, 24, 255, 0.3);
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .main-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .highlight {
+    color: #4318FF;
+    position: relative;
+    display: inline-block;
+  }
+
+  .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #4318FF;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+
+  .highlight:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .description {
+    color: #686D90;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .download-button {
+    background: #4318FF;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+
+  .download-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .button-shine {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+  }
+
+  .showcase-images {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .showcase-img {
+    width: 45%;
+    border-radius: 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .showcase-img:hover {
+    transform: translateY(-10px);
+  }
+
+  .phone-container {
+    position: relative;
+    height: 750px;
+  }
+
+  .phone {
+    position: absolute;
+    transition: transform 0.5s ease;
+  }
+
+  .phone.front {
+    z-index: 2;
+    right: 0;
+    top: 2rem;
+  }
+
+  .phone.back {
+    z-index: 1;
+    right: 15rem;
+    top: 2rem;
+  }
+
+  .phone-container:hover .phone.front {
+    transform: translateX(-30px) rotate(-5deg);
+  }
+
+  .phone-container:hover .phone.back {
+    transform: translateX(30px) rotate(5deg);
+  }
+
+  .features-list {
+    margin-top: 2rem;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .feature-item img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: rotate(12deg) translateY(0); }
+    50% { transform: rotate(12deg) translateY(-10px); }
+  }
+
+  @keyframes shine {
+    0% { left: -50%; }
+    100% { left: 150%; }
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+  }
+
+  @keyframes floatLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100%); }
+  }
+
+  @keyframes floatRight {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .right-column {
+      /* Ajustar el orden para móvil */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .phone-container {
+      height: auto; /* Cambiar de altura fija a auto */
+      position: relative;
+      margin-bottom: 420px; /* Espacio para los teléfonos */
+    }
+
+    .phone {
+      width: auto;
+      max-width: 300px;
+      height: auto;
+    }
+
+    .phone.front {
+      position: absolute;
+      right: 50%;
+      transform: translateX(60%);
+    }
+
+    .phone.back {
+      position: absolute;
+      right: 50%;
+      transform: translateX(-60%);
+    }
+
+    .features-list {
+      margin-top: auto; /* Empujar la lista de características hacia abajo */
+      position: relative;
+      z-index: 10;
+      background: rgba(10, 3, 31, 0.8); /* Fondo semi-transparente */
+      padding: 1rem;
+      border-radius: 1rem;
+      backdrop-filter: blur(10px);
+      margin-bottom: 2rem;
+    }
+
+    .feature-item {
+      background: rgba(67, 24, 255, 0.1);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      padding-top: 2rem;
+    }
+
+    .phone-container {
+      margin-bottom: 300px; /* Reducir el espacio en móviles más pequeños */
+    }
+
+    .phone {
+      max-width: 200px;
+    }
+
+    .phone.front {
+      transform: translateX(40%);
+    }
+
+    .phone.back {
+      transform: translateX(-40%);
+    }
+
+    .floating-badge {
+      top: 0.5rem;
+      right: 1rem;
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+    }
+
+    .features-list {
+      margin-top: 1rem;
+    }
+
+    .feature-item {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .phone-container {
+      margin-bottom: 250px;
+    }
+
+    .phone {
+      max-width: 160px;
+    }
+
+    .phone.front {
+      transform: translateX(30%);
+    }
+
+    .phone.back {
+      transform: translateX(-30%);
+    }
+
+    .floating-text {
+      display: none; /* Ocultar texto flotante en móviles muy pequeños */
+    }
+  }
+</style>

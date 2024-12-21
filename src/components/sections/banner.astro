@@ -3,57 +3,230 @@
 import "../../fonts/style.css";
 ---
 
-<div class="relative w-full h-screen">
-  <!-- Background image with overlay -->
-  <div class="absolute inset-0">
+<div class="banner-container">
+  <!-- Background image with optimized overlay -->
+  <div class="banner-background">
     <img
       src="/img/banner.png"
       alt="Tattoo artist working"
-      class="w-full h-full object-cover"
+      class="banner-image"
     />
-    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="banner-overlay"></div>
   </div>
 
-<!-- Efecto de desvanecimiento grisáceo superior e inferior -->
-<div
-  class="absolute inset-0 pointer-events-none"
-  style={{
-    background: `
-      linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.3) 0%,    /* Gris claro en la parte superior */
-        rgba(255, 255, 255, 0.3) 10%,   /* Gris más claro con menos opacidad */
-        transparent 20%,                 /* Transparente */
-        transparent 80%,                 /* Transparente */
-        rgba(255, 255, 255, 0.3) 90%,    /* Gris más claro en la parte inferior */
-        rgba(255, 255, 255, 0.3) 100%    /* Gris claro en la parte inferior */
-      )
-    `,
-  }}
->
-</div>
+  <!-- Efectos de gradiente usando los colores de tu paleta -->
+  <div class="gradient-effects"></div>
 
-  <!-- Efecto de viñeta para acentuar los bordes -->
-  <div
-    class="absolute inset-0 pointer-events-none"
-    style={{
-      boxShadow: `inset 0 0 150px rgba(0, 0, 0, 0.9)`,
-    }}
-  >
-  </div>
-
-  <!-- Content -->
-  <div
-    class="relative z-10 h-full flex flex-col items-center justify-center text-center px-4"
-  >
-  <img src="/img/logo.png" alt="" style="width: 200px; height: auto;" class="mb-4" />
-
-  <h1 class="text-[3rem] text-white mb-6 font-inter font-black">
-    "Conectando generaciones de tinta"</h1>
-
-    <div class="text-gray-200 text-[2rem] space-y-2 font-inter mt-10">
+  <!-- Contenido principal -->
+  <div class="banner-content">
+    <img src="/img/logo.png" alt="Inker Logo" class="banner-logo" />
+    <h1 class="banner-title">"Conectando generaciones de tinta"</h1>
+    <div class="banner-text">
       <p>Conecta con la historia del tatuaje.</p>
       <p>Encuentra tu artista ideal con Inker</p>
     </div>
   </div>
 </div>
+
+<style>
+  .banner-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .banner-background {
+    position: absolute;
+    inset: 0;
+  }
+
+  .banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(1.2) contrast(1.1);
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+  }
+
+  .banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      #141D3C 0%,
+      rgba(20, 29, 60, 0.8) 50%,
+      rgba(116, 80, 255, 0.6) 100%
+    );
+    mix-blend-mode: multiply;
+  }
+
+  .gradient-effects {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(
+        circle at center,
+        transparent 0%,
+        rgba(116, 80, 255, 0.2) 50%,
+        rgba(20, 29, 60, 0.4) 100%
+      ),
+      linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(253, 210, 46, 0.1) 50%,
+        transparent 100%
+      );
+    pointer-events: none;
+    animation: pulse 8s ease-in-out infinite;
+  }
+
+  .banner-content {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .banner-logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 2rem;
+    animation: float 6s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(116, 80, 255, 0.3));
+  }
+
+  .banner-title {
+    font-size: 3rem;
+    color: #F2F2F2;
+    margin-bottom: 1.5rem;
+    font-weight: 900;
+    text-shadow: 
+      0 2px 4px rgba(20, 29, 60, 0.5),
+      0 0 20px rgba(116, 80, 255, 0.3);
+    animation: fadeInUp 1s ease-out;
+  }
+
+  .banner-text {
+    color: #F2F2F2;
+    font-size: 2rem;
+    line-height: 1.4;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease-out 0.3s both;
+  }
+
+  .banner-text p {
+    margin: 0.5rem 0;
+    position: relative;
+  }
+
+  .banner-text p::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #7450ff;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+  }
+
+  .banner-text p:hover::after {
+    width: 60%;
+  }
+
+  /* Animaciones */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Efectos de hover */
+  .banner-container:hover .banner-image {
+    transform: scale(1.04);
+  }
+
+  /* Media queries para responsividad */
+  @media (max-width: 768px) {
+    .banner-title {
+      font-size: 2.5rem;
+    }
+
+    .banner-text {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .banner-title {
+      font-size: 2rem;
+    }
+
+    .banner-text {
+      font-size: 1.25rem;
+    }
+
+    .banner-logo {
+      width: 150px;
+    }
+  }
+
+  /* Efecto de brillo en hover */
+  .banner-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle at center,
+      rgba(116, 80, 255, 0.1) 0%,
+      transparent 50%
+    );
+    transform: rotate(45deg);
+    animation: shimmer 10s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>

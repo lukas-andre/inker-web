@@ -1,75 +1,301 @@
 ---
 // Navbar.astro
+interface NavItem {
+  name: string;
+  path: string;
+}
+
 const navItems = {
-  left: ["Principal", "Nosotros"],
-  right: ["App", "Testimonios"],
+  left: [
+    { name: "Principal", path: "principal" },
+    { name: "Nosotros", path: "nosotros" }
+  ],
+  right: [
+    { name: "App", path: "app" }
+  ]
 };
 
 const currentPath = Astro.url.pathname;
 ---
 
-<div class="w-full bg-[#0A031F]">
-  <nav class="flex h-16 md:h-20 w-full max-w-2xl mx-auto items-center justify-between px-4 md:px-0 relative">
-    {/* Logo - Alineado a la izquierda en móvil, centrado en desktop */}
-    <div class="md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
-      <a href="/" class="block">
-        <img src="/img/logo.png" alt="9inker" class="h-8 md:h-10 w-auto" />
+<header class="nav-header">
+  <nav class="nav-container">
+    <!-- Logo -->
+    <div class="logo-container">
+      <a href="/" class="logo-link">
+        <img 
+          src="/img/logo.png" 
+          alt="9inker" 
+          class="logo-image"
+        />
+        <div class="logo-glow"></div>
       </a>
     </div>
 
-    {/* Navegación izquierda - Solo Desktop */}
-    <div class="hidden md:flex gap-2">
+    <!-- Navegación izquierda -->
+    <div class="nav-section left">
       {navItems.left.map((item) => (
         <a
-          href={`/#${item.toLowerCase()}`}
-          class:list={[
-            "relative font-nexa text-sm tracking-wider text-[#94a3b8] hover:text-[#8b5cf6] transition-colors duration-300 group px-2 pb-2",
-            { "text-white": currentPath === `/${item.toLowerCase()}` },
-          ]}
+          href={`/#${item.path}`}
+          class={`nav-link ${currentPath === `/${item.path}` ? 'active' : ''}`}
         >
-          {item}
-          <span class="absolute bottom-0 left-0 h-0.5 w-full bg-[#94a3b8] transition-all duration-300 group-hover:bg-[#8b5cf6]" />
+          {item.name}
+          <span class="nav-indicator"></span>
+          <span class="nav-glow"></span>
         </a>
       ))}
     </div>
 
-    {/* Navegación derecha - Solo Desktop */}
-    <div class="hidden md:flex gap-2">
+    <!-- Navegación derecha -->
+    <div class="nav-section right">
       {navItems.right.map((item) => (
         <a
-          href={`/#${item.toLowerCase()}`}
-          class:list={[
-            "relative font-nexa text-sm tracking-wider text-[#94a3b8] hover:text-[#8b5cf6] transition-colors duration-300 group px-2 pb-2",
-            { "text-white": currentPath === `/${item.toLowerCase()}` },
-          ]}
+          href={`/#${item.path}`}
+          class={`nav-link ${currentPath === `/${item.path}` ? 'active' : ''}`}
         >
-          {item}
-          <span class="absolute bottom-0 left-0 h-0.5 w-full bg-[#94a3b8] transition-all duration-300 group-hover:bg-[#8b5cf6]" />
+          {item.name}
+          <span class="nav-indicator"></span>
+          <span class="nav-glow"></span>
         </a>
       ))}
     </div>
 
-    {/* Botón de menú móvil 
-    <button
-      id="mobile-menu-button"
-      class="md:hidden text-white hover:text-[#8b5cf6] transition-colors duration-300"
+    <!-- Menú móvil -->
+    <button 
+      class="mobile-menu-button"
       aria-label="Menú"
+      id="mobile-menu-button"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-6 w-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16"
-        ></path>
-      </svg>
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
     </button>
-    */}
   </nav>
-</div>
+
+  <!-- Menú móvil expandible -->
+  <div class="mobile-menu" id="mobile-menu">
+    {[...navItems.left, ...navItems.right].map((item) => (
+      <a
+        href={`/#${item.path}`}
+        class={`mobile-nav-link ${currentPath === `/${item.path}` ? 'active' : ''}`}
+      >
+        {item.name}
+      </a>
+    ))}
+  </div>
+</header>
+
+<style>
+  .nav-header {
+    background-color: #0A031F;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-container {
+    max-width: 1200px;
+    height: 5rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .logo-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .logo-link {
+    display: block;
+    position: relative;
+  }
+
+  .logo-image {
+    height: 2.5rem;
+    width: auto;
+    transition: transform 0.3s ease;
+  }
+
+  .logo-glow {
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(
+      circle at center,
+      rgba(139, 92, 246, 0.15),
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .logo-link:hover .logo-image {
+    transform: scale(1.05);
+  }
+
+  .logo-link:hover .logo-glow {
+    opacity: 1;
+  }
+
+  .nav-section {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .nav-link {
+    position: relative;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+    text-decoration: none;
+  }
+
+  .nav-indicator {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: #8b5cf6;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+
+  .nav-glow {
+    position: absolute;
+    inset: -0.5rem;
+    background: radial-gradient(
+      circle at center,
+      rgba(139, 92, 246, 0.15),
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: #8b5cf6;
+  }
+
+  .nav-link:hover .nav-indicator,
+  .nav-link.active .nav-indicator {
+    transform: scaleX(1);
+  }
+
+  .nav-link:hover .nav-glow {
+    opacity: 1;
+  }
+
+  .mobile-menu-button {
+    display: none;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .menu-line {
+    width: 1.5rem;
+    height: 2px;
+    background-color: #94a3b8;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #0A031F;
+    padding: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(-1rem);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-nav-link {
+    display: block;
+    padding: 1rem;
+    color: #94a3b8;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-nav-link:hover {
+    color: #8b5cf6;
+    background: rgba(139, 92, 246, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .nav-section {
+      display: none;
+    }
+
+    .mobile-menu-button {
+      display: flex;
+    }
+
+    .logo-container {
+      position: static;
+      transform: none;
+    }
+
+    .mobile-menu.active {
+      display: block;
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .mobile-menu-button.active .menu-line:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .mobile-menu-button.active .menu-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-button.active .menu-line:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+</style>
+
+<script>
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuButton && mobileMenu) {
+    menuButton.addEventListener('click', () => {
+      menuButton.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuButton.classList.remove('active');
+        mobileMenu.classList.remove('active');
+      });
+    });
+  }
+</script>
