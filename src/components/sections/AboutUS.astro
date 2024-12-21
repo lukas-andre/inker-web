@@ -1,0 +1,283 @@
+<section class="about-section">
+  
+  <div class="bg-purple1 py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-content space-y-8">
+        <div class="content-block space-y-6">
+          <h2 class="text-4xl md:text-5xl font-poppins text-white mb-8">Sobre Nosotros</h2>
+          
+          <div class="space-y-6 text-gray-300 leading-relaxed">
+            <p>
+              Inker nació de un sueño universitario: democratizar los oficios y hacer que el arte del tatuaje sea más accesible para todos. Como estudiante, observé la desconexión entre artistas talentosos y personas buscando expresarse a través del arte corporal, y decidí crear una solución.
+            </p>
+            
+            <p>
+              Liderado por Lucas, nuestro equipo está comprometido con revolucionar la forma en que las personas encuentran y conectan con artistas del tatuaje. Esta plataforma es solo el primer paso en nuestra misión de crear puentes entre artistas y clientes, haciendo que el proceso sea más transparente, seguro y accesible para todos.
+            </p>
+  
+            <p>
+              Más que una simple aplicación, Inker representa el futuro de cómo visualizamos la conexión entre oficios y personas. Creemos en el poder de la tecnología para democratizar el acceso al arte y empoderar tanto a artistas como a clientes.
+            </p>
+  
+            <div class="flex items-center gap-6 pt-6">
+              <img 
+                src="/img/lucas-profile.jpeg" 
+                alt="Lucas Henry" 
+                class="w-20 h-20 rounded-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+              <div>
+                <h3 class="text-white text-xl font-semibold mb-1">Lucas Henry</h3>
+                <p class="text-gray-400 mb-2">Fundador & Desarrollador</p>
+                <a 
+                  href="https://www.linkedin.com/in/lucas-henryd/" 
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  class="inline-flex items-center text-[#4318FF] hover:text-[#6366f1] transition-colors duration-300"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                  Conecta conmigo en LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="mt-12">
+        <a 
+          href="#app" 
+          class="inline-block bg-[#4318FF] hover:bg-[#3a14d9] text-white font py-3 px-8 rounded-full transition-all duration-300 relative overflow-hidden group"
+        >
+          ¡Descubre Inker!
+          <span class="absolute inset-0 w-full h-full bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    background-color: #0A031F;
+    position: relative;
+    padding: 7rem 0;
+    overflow: hidden;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    position: relative;
+  }
+
+  .content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .info-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .title {
+    font-size: 3.5rem;
+    color: #F3F4F6;
+    position: relative;
+    display: inline-block;
+  }
+
+  .title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60%;
+    height: 4px;
+    background: linear-gradient(90deg, #4318FF, transparent);
+  }
+
+  .text-content {
+    color: #686D90;
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .content-block {
+    position: relative;
+    padding-left: 1.5rem;
+    border-left: 4px solid #4318FF;
+    transition: transform 0.3s ease;
+  }
+
+  .content-block:hover {
+    transform: translateX(10px);
+  }
+
+  .content-block p {
+    margin-bottom: 1.5rem;
+  }
+
+  .content-block::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 0;
+    width: 4px;
+    height: 0;
+    background: #7450FF;
+    transition: height 0.3s ease;
+  }
+
+  .content-block:hover::before {
+    height: 100%;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: #4318FF;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 20px rgba(67, 24, 255, 0.3);
+  }
+
+  .button-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: rotate(45deg);
+    animation: buttonGlow 3s infinite;
+  }
+
+  .visual-column {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .phone-wrapper {
+    position: relative;
+    z-index: 2;
+  }
+
+  .phone-mockup {
+    width: 250px;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 30px rgba(67, 24, 255, 0.2);
+    transition: transform 0.3s ease;
+  }
+
+  .phone-wrapper:hover .phone-mockup {
+    transform: translateY(-10px);
+  }
+
+  .phone-glow {
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(circle at center, rgba(67, 24, 255, 0.2), transparent);
+    filter: blur(20px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .phone-wrapper:hover .phone-glow {
+    opacity: 1;
+  }
+
+  .floating-image {
+    position: absolute;
+    transition: transform 0.3s ease;
+  }
+
+  .floating-image.artist {
+    width: 200px;
+    top: -100px;
+    right: 15px;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .decor-image {
+    position: absolute;
+    width: 150px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+
+  .decor-image.bottom {
+    bottom: 0;
+    right: 0;
+    animation: pulse 8s ease-in-out infinite;
+  }
+
+  .decor-image.top {
+    top: 2.5rem;
+    left: 0;
+    animation: pulse 8s ease-in-out infinite reverse;
+  }
+
+  @keyframes buttonGlow {
+    0% { left: -50% }
+    100% { left: 150% }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.95); }
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .content-wrapper {
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+
+    .visual-column {
+      order: -1;
+    }
+
+    .floating-image.artist {
+      top: -50px;
+      right: 50px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2.5rem;
+    }
+
+    .floating-image.artist {
+      width: 150px;
+      top: -30px;
+      right: 30px;
+    }
+
+    .decor-image {
+      width: 100px;
+    }
+  }
+</style>
